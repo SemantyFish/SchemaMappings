@@ -1,0 +1,2576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      source_type="xpath"
+      version="1.0"
+      xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
+   <info>
+      <title>SemantyFish: Genera_Mappings</title>
+      <general_description>Mappings for the table GENERA from FishBase database</general_description>
+      <source>
+         <source_info>
+            <source_schema schema_file="GENERA.xml" type="xml" version="">GENERA</source_schema>
+            <namespaces>
+               <namespace prefix="" uri=""/>
+            </namespaces>
+         </source_info>
+      </source>
+      <target>
+         <target_info>
+            <target_schema schema_file="CIDOC_CRM_v7.1.1.rdfs" type="rdfs" version="">CIDOC CRM</target_schema>
+            <namespaces>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
+               <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+               <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
+            </namespaces>
+         </target_info>
+         <target_info>
+            <target_schema schema_file="marinetlo_semantyFish_ext5_1.owl"
+                           type="owl"
+                           version="">marinetlo_semantyFish_ext5_1</target_schema>
+            <namespaces>
+               <namespace prefix="marinetlo"
+                          uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+               <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+               <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"/>
+               <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
+               <namespace prefix="vs" uri="http://www.w3.org/2003/06/sw-vocab-status/ns#"/>
+               <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"/>
+               <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"/>
+               <namespace prefix="base" uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+            </namespaces>
+         </target_info>
+      </target>
+      <mapping_info>
+         <mapping_created_by_org/>
+         <mapping_created_by_person/>
+         <in_collaboration_with/>
+      </mapping_info>
+      <example_data_info>
+         <example_data_from/>
+         <example_data_contact_person/>
+         <example_data_source_record/>
+         <generator_policy_info/>
+         <example_data_target_record/>
+         <thesaurus_info/>
+      </example_data_info>
+   </info>
+   <namespaces>
+      <namespace prefix="pref" uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+   </namespaces>
+   <mappings>
+      <mapping>
+         <domain>
+            <source_node>//GENERA</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT26_Genus</type>
+                  <type>crm:E55_Type</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Genus</arg>
+                     <arg name="term" type="xpath">C_GenCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_GenName/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenName</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenName</source_node>
+               <target_node>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">Appellation</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT14_Appellation_Type</type>
+                           <instance_generator name="URIorUUID">
+                              <arg name="text" type="constant">http://rs.tdwg.org/dwc/terms/scientificName</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">scientific name</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenAuthor</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <not>
+                              <if>
+                                 <exists>../C_GenInEx/text()</exists>
+                              </if>
+                           </not>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <equals value="">text()</equals>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC12_was_attributed_by</relationship>
+                  <entity variable="Genus_Assignment">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Name_Assignment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">name assignment for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC13_is_carried_out_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenAuthor</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenAuthor</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>.[contains(../C_GenInEx/text(), 'ex')]</exists>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <equals value="">text()</equals>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC12_was_attributed_by</relationship>
+                  <entity variable="Genus_Assignment">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Name_Assignment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">name assignment for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC55_used_specific_object</relationship>
+                        <entity>
+                           <type>marinetlo:BC25_Linguistic_Object</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">Work_By</arg>
+                              <arg name="term" type="xpath">substring-before(substring-after(../C_GenInEx/text(), 'ex '), ')')</arg>
+                           </instance_generator>
+                           <label_generator name="CompositeLabel">
+                              <arg name="term1" type="constant">work by</arg>
+                              <arg name="term2" type="xpath">substring-before(substring-after(../C_GenInEx/text(), 'ex '), ')')</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC13_is_carried_out_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenAuthor</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenAuthor</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>.[contains(../C_GenInEx/text(), 'in')]</exists>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <equals value="">text()</equals>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC12_was_attributed_by</relationship>
+                  <entity variable="Genus_Assignment">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Name_Assignment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">name assignment for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC2_is_referred_by</relationship>
+                        <entity>
+                           <type>marinetlo:BC27_Publication</type>
+                           <type>crm:E33_Linguistic_Object</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                              <arg name="term" type="xpath">concat('Publication/', ../C_GenAuthorYear/text())</arg>
+                           </instance_generator>
+                           <label_generator name="CompositeLabel">
+                              <arg name="term1" type="constant">publication</arg>
+                              <arg name="term2" type="xpath">../C_GenAuthorYear/text()</arg>
+                           </label_generator>
+                           <additional>
+                              <relationship>crm:P165_incorporates</relationship>
+                              <entity>
+                                 <type>crm:E33_Linguistic_Object</type>
+                                 <type>marinetlo:BC27_Publication</type>
+                                 <instance_generator name="LocalTermURI">
+                                    <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                                    <arg name="term" type="xpath">concat('Work_By/', substring-after(../C_GenInEx/text(), 'in '))</arg>
+                                 </instance_generator>
+                                 <label_generator name="CompositeLabel">
+                                    <arg name="term1" type="constant">work by</arg>
+                                    <arg name="term2" type="xpath">substring-after(../C_GenInEx/text(), 'in ')</arg>
+                                 </label_generator>
+                              </entity>
+                           </additional>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC13_is_carried_out_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenAuthor</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">substring-after(../C_GenInEx/text(), 'in ')</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">substring-after(../C_GenInEx/text(), 'in ')</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenYear</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC12_was_attributed_by</relationship>
+                  <entity variable="Genus_Assignment">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC5_has_time_span</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenYear</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC2_Time_Span</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Name_Assignment_Timespan</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenComName</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenComName</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">Appellation</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <instance_generator name="URIorUUID">
+                              <arg name="text" type="constant">http://rs.tdwg.org/dwc/terms/vernacularName</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vernacular name</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenStatus</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LX3_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenStatus</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT32_Persisten_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenStatusICZN</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LX3_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenStatusICZN</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT32_Persisten_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GenCodeValid</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GenCodeValid</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC32_Identifier</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Genus</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Valid_Classification</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">valid classification</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Etymology</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Etymology</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_ETYFish</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="ETYFish_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Appellation/ETYFish</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">ETYFish appellation</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_ETYFish</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Eponym</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX2_is_subject_of</relationship>
+                  <entity variable="eponym">
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Linguistic_Appellation</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC2_refers_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Eponym</source_node>
+               <target_node>
+                  <entity variable="eponymous_person">
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_EponymShortAccount</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>text()</exists>
+                        </if>
+                        <if>
+                           <exists>../C_Eponym/text()</exists>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX2_is_subject_of</relationship>
+                  <entity variable="eponym">
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC2_refers_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_EponymShortAccount</source_node>
+               <target_node>
+                  <entity variable="eponymous_person">
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="UUID"/>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Gender</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <equals value="masculine">text()</equals>
+                        </if>
+                        <if>
+                           <exists>../C_Eponym/text()</exists>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Gender</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT32_Persisten_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Masculine_Noun</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">masculine noun</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Gender</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <equals value="neuter">text()</equals>
+                        </if>
+                        <if>
+                           <exists>../C_Eponym/text()</exists>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+                  <entity variable="Genus_Appellation">
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="UUID"/>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Gender</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT32_Persisten_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Neuter_Noun</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">neuter noun</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SubgenusOf</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SubgenusOf</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT26_Genus</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Genus</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_FamCode</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_FamCode</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT24_Family</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Family</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Subfamily</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Subfamily</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT25_SubFamily</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Subfamily</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Tribe</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Tribe</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT10_Biotic_Element_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Tribe</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_BodyShapeI</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_BodyShapeI</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT35_Property_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Length</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Largest_Male_Unsexed_Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">largest male or unsexed specimen for species</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX18_has_sex</relationship>
+                        <entity>
+                           <type>marinetlo:BT40_Sex</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Male_Unsexed</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">male or unsexed</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Length</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Max_Length_Male_Unsexed</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum length for male or unsexed specimens</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Centimeters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">centimeters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Comment</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <exists>text()</exists>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>marinetlo:LX2_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Comment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">comment concerning</arg>
+                        <arg name="term2" type="xpath">../GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Comment</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynCode</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynCode</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC32_Identifier</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="xpath">concat('SynCode/', text())</arg>
+                     </instance_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <instance_generator name="URIorUUID">
+                              <arg name="text" type="constant">http://rs.tdwg.org/dwc/terms/acceptedNameUsageID</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">accepted name usage ID</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_FB_SppNb</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">FB_Record_Count_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fish Base record count calculation for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC9_assigned</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_FB_SppNb</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">FB_RecordCount</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">fishbase record count for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">No_of_Records</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">number of recordds</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_CoF_SppNb</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">CoF_Record_Count_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Catalogue of Fishes record count calculation for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC9_assigned</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_CoF_SppNb</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">CoF_RecordCount</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Catalogue of Fishes record count for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">No_of_Records</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">number of recordds</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_CoF_SppNb</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">FoW_Record_Count_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fishes of the World record count calculation for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC9_assigned</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_CoF_SppNb</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">FoW_RecordCount</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fishes of the World record count for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">No_of_Records</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">number of recordds</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_GSD_GenusFk</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_GSD_GenusFk</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC32_Identifier</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="xpath">concat('CoF_GenusCode/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">code for genus in CoF</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">External_Genus_Code</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">external genus code</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Distribution</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Distribution</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">distribution of</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Distribution</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Habitat</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Habitat</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">habitat of</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Habitat</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Marine</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Marine</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Marine_water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">marine water environment</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Brackish</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Brackish</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Brackish_Water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">brakish water environment</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Freshwater</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Freshwater</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Freshwater_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">freshwater environment</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_WaterSalinity</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LT3_usually_is_component_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_WaterSalinity</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT7_Ecosystem_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Diagnosis</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX2_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Diagnosis</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">diagnosis for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:O3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Diagnosis</source_node>
+               <target_node>
+                  <entity>
+                     <type>xsd:string</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DspinesMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DspinesMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Spines_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minumum number of dorsal spines for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DspinesMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DspinesMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Spines_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of dorsal spines for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DsoftRaysMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DsoftRaysMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Unbranched_Soft_Rays_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of unbranched dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DsoftRaysMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DsoftRaysMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Unbranched_Soft_Rays_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of unbranched dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TotalDsoftRaysMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TotalDsoftRaysMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Soft_Rays_Total_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of total dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TotalDsoftRaysMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TotalDsoftRaysMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Soft_Rays_Total_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of total dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DsoftRaysBranchMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DsoftRaysBranchMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Branched_Soft_Rays_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of branched dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DsoftRaysBranchMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DsoftRaysBranchMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Dorsal_Branched_Soft_Rays_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of branched dorsal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AspinesMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AspinesMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Spines_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minumum number of anal spines for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AspinesMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AspinesMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Spines_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of anal spines for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AsoftRaysMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AsoftRaysMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Unbranched_Soft_Rays_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of unbranched anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AsoftRaysMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AsoftRaysMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Unbranched_Soft_Rays_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of unbranched anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TotalAsoftRaysMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TotalAsoftRaysMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Soft_Rays_Total_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of total anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TotalAsoftRaysMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TotalAsoftRaysMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Soft_Rays_Total_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of total anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AsoftRaysBranchMin</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AsoftRaysBranchMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Branched_Soft_Rays_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">minimum number of branched anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_AsoftRaysBranchMax</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_AsoftRaysBranchMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Anal_Branched_Soft_Rays_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">maximum number of branched anal soft rays for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DepthRangeShallow</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BC15_Water_Area</type>
+                     <instance_generator name="TypeComplex2URI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">water environment for </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DepthRangeShallow</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Most_Shallow_Waters</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">most shallow waters for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Meters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">meters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DepthRangeDeep</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of genus</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BC15_Water_Area</type>
+                     <instance_generator name="TypeComplex2URI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">water environment for </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DepthRangeDeep</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Deepest_Waters</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">deepest waters for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Meters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">meters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DepthRangeComShallow</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC80_Temporary_Aggregate</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Specimens_Set</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimens of </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BC15_Water_Area</type>
+                     <instance_generator name="TypeComplex2URI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">water environment for </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DepthRangeComShallow</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Shallow_Waters_Common</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">common shallow waters for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Meters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">meters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_DepthRangeComDeep</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC80_Temporary_Aggregate</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Specimens_Set</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimens of </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BC15_Water_Area</type>
+                     <instance_generator name="TypeComplex2URI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Water_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">water environment for </arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_DepthRangeComDeep</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/',../C_GenCode/text())</arg>
+                        <arg name="term" type="constant">Deep_Waters_Common</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">common deep waters for</arg>
+                        <arg name="term2" type="xpath">../C_GenName/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Meters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">meters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+   </mappings>
+</x3ml>
