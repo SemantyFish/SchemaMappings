@@ -494,7 +494,7 @@
                   <entity>
                      <type>marinetlo:BC32_Identifier</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="constant">Genus</arg>
+                        <arg name="hierarchy" type="constant">Genus/Id/</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <additional>
