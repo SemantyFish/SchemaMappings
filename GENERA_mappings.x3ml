@@ -497,6 +497,9 @@
                         <arg name="hierarchy" type="constant">Genus/Id</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
@@ -1016,6 +1019,9 @@
                         <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
                         <arg name="term" type="xpath">concat('SynCode/', text())</arg>
                      </instance_generator>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
