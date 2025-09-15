@@ -669,7 +669,7 @@
                               <arg name="type" type="constant">No_of_Genera_Records</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">number of genera recordds</arg>
+                              <arg name="label" type="constant">number of genera records</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -790,10 +790,10 @@
                         <entity>
                            <type>marinetlo:BC55_Measurement_Unit</type>
                            <instance_generator name="TypeURI">
-                              <arg name="type" type="constant">No_of_Species_Records</arg>
+                              <arg name="type" type="constant">No_of_Valid_Species_Records</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">number of species records</arg>
+                              <arg name="label" type="constant">number of valid species records</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -851,6 +851,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">marine water environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -876,8 +889,21 @@
                         <arg name="type" type="constant">Brackish_Water_Environment</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="constant">brakish water environment</arg>
+                        <arg name="label" type="constant">brackish water environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -905,6 +931,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">freshwater environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -932,6 +971,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_salinity</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water salinity</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -999,12 +1051,25 @@
                   <entity>
                      <type>marinetlo:BT35_Property_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Family/', ../FamCode/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat('Family', ../FamCode/text())</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">reproductive_guild</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">reproductive guild</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1027,12 +1092,25 @@
                   <entity>
                      <type>marinetlo:BT35_Property_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Family/', ../FamCode/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat('Family', ../FamCode/text())</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">swim_mode</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">swim mode</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1083,12 +1161,25 @@
                   <entity>
                      <type>marinetlo:BT35_Property_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Family/', ../FamCode/text(), '/Activity')</arg>
+                        <arg name="hierarchy" type="xpath">concat('Family', ../FamCode/text(), '/Activity')</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">concat('activity ', text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">activity</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">activity</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1279,6 +1370,19 @@
                            </instance_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">minimum_number_of_anal_spines</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">minimum number of anal spines</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1327,6 +1431,19 @@
                            <instance_generator name="Literal">
                               <arg name="text" type="xpath">text()</arg>
                            </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">maximum_number_of_anal_spines</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum number of anal spines</arg>
+                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -1379,6 +1496,19 @@
                            </instance_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">minimum_number_of_total_anal_soft_rays</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">minimum number of total anal soft rays</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1427,6 +1557,19 @@
                            <instance_generator name="Literal">
                               <arg name="text" type="xpath">text()</arg>
                            </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">maximum_number_of_total_anal_soft_rays</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum number of total anal soft rays</arg>
+                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -1479,6 +1622,19 @@
                            </instance_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">minimum_number_of_dorsal_spines</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">minimum number of dorsal spines</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1527,6 +1683,19 @@
                            <instance_generator name="Literal">
                               <arg name="text" type="xpath">text()</arg>
                            </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">maximum_number_of_dorsal_spines</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum number of dorsal spines</arg>
+                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -1579,6 +1748,19 @@
                            </instance_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">minimum_number_of_total_dorsal_soft_rays</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">minimum number of total dorsal soft rays</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1627,6 +1809,19 @@
                            <instance_generator name="Literal">
                               <arg name="text" type="xpath">text()</arg>
                            </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">maximum_number_of_total_dorsal_soft_rays</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum number of total dorsal soft rays</arg>
+                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -1695,12 +1890,26 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT7_Ecosystem_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">division</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">division</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">division</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1903,7 +2112,7 @@
                         <arg name="term" type="xpath">../C_PeriodRange/text()</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../Period/text()</arg>
+                        <arg name="term1" type="xpath">../C_Period/text()</arg>
                         <arg name="term2" type="xpath">../C_PeriodRange/text()</arg>
                      </label_generator>
                   </entity>
