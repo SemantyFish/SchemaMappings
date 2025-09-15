@@ -177,9 +177,8 @@
                               <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text(), '/Name_Assignment_Timespan')</arg>
                               <arg name="term" type="xpath">substring-after(substring-before(text(), ')'),', ')</arg>
                            </instance_generator>
-                           <label_generator name="CompositeLabel">
-                              <arg name="term1" type="xpath">concat('name assignment time-span for ', ../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                              <arg name="term2" type="xpath">substring-after(substring-before(text(), ')'),', ')</arg>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="xpath">substring-after(substring-before(text(), ')'),', ')</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -284,9 +283,8 @@
                               <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text(), '/Name_Assignment_Timespan')</arg>
                               <arg name="term" type="xpath">substring-after(text(),', ')</arg>
                            </instance_generator>
-                           <label_generator name="CompositeLabel">
-                              <arg name="term1" type="xpath">concat('name assignment time-span for ', ../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                              <arg name="term2" type="xpath">substring-after(text(),', ')</arg>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="xpath">substring-after(text(),', ')</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -455,6 +453,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">freshwater environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -480,8 +491,21 @@
                         <arg name="type" type="constant">Brackish_Water_Environment</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="constant">brakish water environment</arg>
+                        <arg name="label" type="constant">brackish water environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -509,6 +533,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">salt water environment</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">water_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">water environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -761,6 +798,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">body_shape</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">body shape</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -788,6 +838,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">preferred_environment</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">preferred environment</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1672,9 +1735,8 @@
                         <arg name="hierarchy" type="constant">Migration_Type</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">migration type</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
                   </entity>
                </target_node>
@@ -3059,10 +3121,22 @@
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Aquaculture/', text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">concat('use of ', ../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                        <arg name="term2" type="xpath">concat('for aquaculture ', text())</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">used_for_aquaculture</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">used for aquaculture</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3092,10 +3166,22 @@
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Bait/', text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">concat('use of ', ../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                        <arg name="term2" type="xpath">concat('as bait ', text())</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">used_as_bait</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">used as bait</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3236,10 +3322,22 @@
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Dangerous/', text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                        <arg name="term2" type="xpath">concat('dangerous ', text())</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">dangerous_species_indicator</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">dangerous species indicator</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3265,10 +3363,22 @@
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Electrogenic/', text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
-                        <arg name="term2" type="xpath">concat('electrogenic ', text())</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">electrogenic</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">electrogenic</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
