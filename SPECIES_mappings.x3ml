@@ -906,6 +906,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Valid in CofF with the same name or not checked</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -934,6 +947,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Taxonomic issue other than CofF</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -962,6 +988,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Different in CofF: decision pending future work</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -990,6 +1029,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Also valid species in CofF but in another genus: to be corrected in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1018,6 +1070,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Synonym in CofF: to be corrected in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1046,6 +1111,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Valid as a species in CofF: to be corrected in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1074,6 +1152,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Uncertain as the same species in CofF</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1102,6 +1193,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Uncertain in the same genus in CofF</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1130,6 +1234,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Uncertain in the same family in CofF</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1158,6 +1275,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Different in CofF: not to be changed in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1186,6 +1316,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Also valid species in CofF but in another genus: not to be changed in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1214,6 +1357,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Synonym in CofF: not to be changed in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1242,6 +1398,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">Valid as a species in CofF: not to be changed in FB</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">taxonomic_issue</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">taxonomic issue</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2354,6 +2523,19 @@
                         <arg name="term1" type="constant">importance of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">importance</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">importance</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
                </target_relation>
@@ -2438,8 +2620,9 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BC5_Dimension</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('SpeciesPrice/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
@@ -2457,15 +2640,12 @@
                         </entity>
                      </additional>
                      <additional>
-                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <relationship>marinetlo:O3_has_note</relationship>
                         <entity>
-                           <type>marinetlo:BT1_TLO_Entity_Type</type>
-                           <instance_generator name="TypeURI">
-                              <arg name="type" type="xpath">../C_PriceReliability/text()</arg>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">../C_PriceReliability/text()</arg>
                            </instance_generator>
-                           <label_generator name="SimpleLabel">
-                              <arg name="label" type="xpath">../C_PriceReliability/text()</arg>
-                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -2653,12 +2833,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">main_catching_method</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">main_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">main catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2696,12 +2899,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">main_catching_method</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">main_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">main catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">fao name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2735,12 +2961,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">seines</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">seines</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2774,12 +3023,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">gillnets</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">gillnets</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2813,12 +3085,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">castnets</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">castnets</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2852,12 +3147,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">traps</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">traps</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2891,12 +3209,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">spears</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">spears</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2930,12 +3271,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">trawls</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">trawls</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2969,12 +3333,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">dredges</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">dredges</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3008,12 +3395,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">liftnets</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">liftnets</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3047,12 +3457,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">hookandline</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">hook and line</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3086,12 +3519,35 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT11_Equipment_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">other_catching_method</arg>
+                        <arg name="term" type="constant">other_method</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
+                        <arg name="label" type="constant">other method</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">other_catching_method</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">other catching method</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="constant">simple name</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3443,6 +3899,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">status: emblematic</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">emblematic_indicator</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">emblematic indicator</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3471,6 +3940,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">status: non-emblematic</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">emblematic_indicator</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">emblematic indicator</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3749,6 +4231,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -3820,6 +4315,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -3856,7 +4364,7 @@
                               <arg name="type" type="constant">Moderate_Vulnerability</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">oderate vulnerability</arg>
+                              <arg name="label" type="constant">moderate vulnerability</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -3891,6 +4399,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -3962,6 +4483,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4033,6 +4567,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4104,6 +4651,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4168,6 +4728,19 @@
                         <arg name="term1" type="constant">climate vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_climate</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability climate</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4239,6 +4812,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4310,6 +4896,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4381,6 +4980,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4417,7 +5029,7 @@
                               <arg name="type" type="constant">Moderate_Vulnerability</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">oderate vulnerability</arg>
+                              <arg name="label" type="constant">moderate vulnerability</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -4452,6 +5064,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4594,6 +5219,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -4658,6 +5296,19 @@
                         <arg name="term1" type="constant">fishing vulnerability of</arg>
                         <arg name="term2" type="xpath">concat(../C_Genus/text(), ' ', ../C_Species/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">vulnerability_fishing</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vulnerability fishing</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
