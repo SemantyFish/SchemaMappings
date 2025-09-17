@@ -267,15 +267,12 @@
                      <exists>text()</exists>
                   </if>
                   <relationship>marinetlo:LT8_usually_belongs_to</relationship>
-                  <entity>
+                  <entity variable="ClasNum">
                      <type>marinetlo:BT22_Class</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Class</arg>
-                        <arg name="term" type="xpath">substring-after(text(), ':')</arg>
+                        <arg name="term" type="xpath">../C_ClassNum/text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">substring-after(text(), ':')</arg>
-                     </label_generator>
                   </entity>
                   <relationship>marinetlo:LX6_type_was_attributed_by</relationship>
                   <entity>
@@ -319,6 +316,9 @@
                   <entity variable="ClasNum">
                      <type>marinetlo:BT22_Class</type>
                      <instance_generator name="UUID"/>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
                   </entity>
                   <relationship>marinetlo:LX1_is_identified_by</relationship>
                </target_relation>
@@ -739,12 +739,12 @@
                      <exists>text()</exists>
                   </if>
                   <relationship>marinetlo:LT8_usually_belongs_to</relationship>
-                  <entity variable="ClassAppellation">
+                  <entity variable="ClasNum">
                      <type>marinetlo:BT22_Class</type>
                      <instance_generator name="UUID"/>
                   </entity>
                   <relationship>marinetlo:LX1_is_identified_by</relationship>
-                  <entity>
+                  <entity variable="ClassAppellation">
                      <type>marinetlo:BC30_Appellation</type>
                      <instance_generator name="UUID"/>
                   </entity>
@@ -781,13 +781,25 @@
                   <entity>
                      <type>marinetlo:BT35_Property_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Order/', ../Ordnum/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat('Order', ../Ordnum/text())</arg>
                         <arg name="term" type="constant">Complete_List</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">complete list for</arg>
-                        <arg name="term2" type="xpath">../Order/text()</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">complete list</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">complete_list_indicator</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">complete list indicator</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -904,7 +916,7 @@
                         <arg name="term" type="xpath">../C_PeriodRange/text()</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../Period/text()</arg>
+                        <arg name="term1" type="xpath">../C_Period/text()</arg>
                         <arg name="term2" type="xpath">../C_PeriodRange/text()</arg>
                      </label_generator>
                   </entity>
@@ -978,7 +990,7 @@
                         <arg name="term" type="xpath">../C_PeriodRange/text()</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../Period/text()</arg>
+                        <arg name="term1" type="xpath">../C_Period/text()</arg>
                         <arg name="term2" type="xpath">../C_PeriodRange/text()</arg>
                      </label_generator>
                   </entity>
