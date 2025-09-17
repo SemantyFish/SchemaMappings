@@ -60,7 +60,7 @@
       </example_data_info>
    </info>
    <namespaces>
-      <namespace prefix="pref" uri="https://github.com/semantyfish/kb/resource/"/>
+      <namespace prefix="pref" uri="https://semantyfish.github.io/kb/resource/"/>
    </namespaces>
    <mappings>
       <mapping>
