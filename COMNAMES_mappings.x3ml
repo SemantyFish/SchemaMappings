@@ -1212,5 +1212,41 @@
             </range>
          </link>
       </mapping>
+      <mapping>
+         <domain>
+            <source_node>/dataroot/COMNAMES/C_SpecCode</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">text()</arg>
+                  </instance_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_ComName</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX1_is_identified_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_ComName</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <instance_generator name="LocalTermUri-hashed">
+                        <arg name="hierarchy" type="constant">appellation</arg>
+                        <arg name="term" type="xpath">concat(../C_autoctr/text(),text())</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
    </mappings>
 </x3ml>
