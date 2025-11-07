@@ -384,7 +384,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="URIorUUID">
                               <arg name="text" type="constant">http://rs.tdwg.org/dwc/terms/vernacularName</arg>
                            </instance_generator>
@@ -418,7 +418,7 @@
                <source_node>C_Synonym</source_node>
                <target_node>
                   <entity>
-                     <type>marinetlo:BT32_Persisten_Type</type>
+                     <type>marinetlo:BT32_Persistent_Type</type>
                      <instance_generator name="TypeURI">
                         <arg name="type" type="constant">Synonym</arg>
                      </instance_generator>

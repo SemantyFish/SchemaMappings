@@ -159,7 +159,7 @@
                      <additional>
                         <relationship>marinetlo:LX6_assigned_attribute_to_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Species</arg>
                               <arg name="term" type="xpath">../C_SpecCode/text()</arg>
@@ -265,7 +265,7 @@
                      <additional>
                         <relationship>marinetlo:LX6_assigned_attribute_to_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Species</arg>
                               <arg name="term" type="xpath">../C_SpecCode/text()</arg>
@@ -339,7 +339,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="URIorUUID">
                               <arg name="text" type="constant">http://rs.tdwg.org/dwc/terms/vernacularName</arg>
                            </instance_generator>
@@ -2171,7 +2171,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">species_length_type</arg>
                               <arg name="term" type="xpath">../C_LTypeMaxM/text()</arg>
@@ -2268,7 +2268,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">species_length_type</arg>
                               <arg name="term" type="xpath">../C_LTypeMaxF/text()</arg>
@@ -3000,7 +3000,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">species_length_type</arg>
                               <arg name="term" type="xpath">../C_LTypeComM/text()</arg>
@@ -3085,7 +3085,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">species_length_type</arg>
                               <arg name="term" type="xpath">../C_LTypeComF/text()</arg>
@@ -4571,7 +4571,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Low_Vulnerability</arg>
                            </instance_generator>
@@ -4655,7 +4655,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Moderate_Vulnerability</arg>
                            </instance_generator>
@@ -4739,7 +4739,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Low_to_Moderate_Vulnerability</arg>
                            </instance_generator>
@@ -4823,7 +4823,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Moderate_to_High_Vulnerability</arg>
                            </instance_generator>
@@ -4907,7 +4907,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">High_Vulnerability</arg>
                            </instance_generator>
@@ -4991,7 +4991,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">High_to_Very_High_Vulnerability</arg>
                            </instance_generator>
@@ -5068,7 +5068,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Very_High_Vulnerability</arg>
                            </instance_generator>
@@ -5152,7 +5152,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Low_Vulnerability</arg>
                            </instance_generator>
@@ -5236,7 +5236,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Low_to_Moderate_Vulnerability</arg>
                            </instance_generator>
@@ -5320,7 +5320,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Moderate_Vulnerability</arg>
                            </instance_generator>
@@ -5404,7 +5404,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Moderate_to_High_Vulnerability</arg>
                            </instance_generator>
@@ -5475,7 +5475,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">High_Vulnerability</arg>
                            </instance_generator>
@@ -5559,7 +5559,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">High_to_Very_High_Vulnerability</arg>
                            </instance_generator>
@@ -5636,7 +5636,7 @@
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT32_Persisten_Type</type>
+                           <type>marinetlo:BT32_Persistent_Type</type>
                            <instance_generator name="TypeURI">
                               <arg name="type" type="constant">Very_High_Vulnerability</arg>
                            </instance_generator>
@@ -5655,7 +5655,7 @@
             <source_node>/dataroot/SPECIES/C_LTypeMaxM</source_node>
             <target_node>
                <entity>
-                  <type>marinetlo:BT32_Persisten_Type</type>
+                  <type>marinetlo:BT32_Persistent_Type</type>
                   <instance_generator name="LocalTermURI">
                      <arg name="hierarchy" type="constant">species_length_type</arg>
                      <arg name="term" type="xpath">text()</arg>
