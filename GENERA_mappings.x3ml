@@ -876,12 +876,26 @@
                <target_node>
                   <entity>
                      <type>marinetlo:BT35_Property_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Genus/', ../C_GenCode/text())</arg>
+                        <arg name="term" type="xpath">concat(text(), Body_Shape_Literal)</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">body_shape</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">body shape</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
