@@ -3,3 +3,16 @@
 This repository contains the schema mappings that are used for transforming FishBase data from their original format to MarineTLO-based instances. 
 X3ML schema mappings are designed using 3M Editor (https://demos.isl.ics.forth.gr/3m/).
 The table below describes the schema mappings that are used and contains links to their corresponding 3M projects.
+
+## X3ML Schema mappings
+
+| Table name  | X3ML file | 3M Editor url |
+|---|---|---|
+| SPECIES  | [SPECIES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/SPECIES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/456264 |
+| GENERA  | [GENERA_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/GENERA_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/805163 |
+| FAMILIES  | [FAMILIES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/FAMILIES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/543858 |
+| ORDERS  | [ORDERS_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ORDERS_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/085756 |
+| CLASSES  | [CLASSES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/CLASSES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/249381 |
+| COMNAMES  | [COMNAMES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/COMNAMES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/582654 |
+| SYNONYMS  | -- | https://demos.isl.ics.forth.gr/3m/MappingTableView/707728 https://demos.isl.ics.forth.gr/3m/MappingTableView/941168 https://demos.isl.ics.forth.gr/3m/MappingTableView/957251 |
+| STOCKS  | -- | https://demos.isl.ics.forth.gr/3m/MappingTableView/765424 |
