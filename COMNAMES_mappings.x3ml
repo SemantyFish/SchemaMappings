@@ -1258,7 +1258,7 @@
                </target_relation>
             </path>
             <range>
-               <source_node>C_SpecCode</source_node>
+               <source_node>C_StockCode</source_node>
                <target_node>
                   <entity>
                      <type>marinetlo:BC75_Stock</type>
@@ -1266,6 +1266,9 @@
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Stock/', text())</arg>
                      </instance_generator>
+					 <label_generator name="Literal">
+						<arg name="text" type="xpath">text()</arg>
+					 </label_generator>
                   </entity>
                </target_node>
             </range>
