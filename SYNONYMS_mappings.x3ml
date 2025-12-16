@@ -1734,6 +1734,31 @@
                </target_node>
             </range>
          </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TaxonLevel</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX2_is_about_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TaxonLevel</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">biotic_element_type</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
       </mapping>
       <mapping>
          <domain>
@@ -3087,6 +3112,31 @@
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="constant">basionym</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TaxonLevel</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX2_is_about_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TaxonLevel</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">biotic_element_type</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                   </entity>
                </target_node>
