@@ -4,11 +4,11 @@
       version="1.0"
       xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
    <info>
-      <title>SemantyFish: Synonyms_Mappings_IDENTIFIERS_FIRST_TaxonLevel=Species</title>
+      <title>SemantyFish: Synonyms_Mappings_CONSOLIDATED</title>
       <general_description>Mappings for the table Synonyms (12) from FishBase database. Start from E42 Identifier add P1i identifies: E33_E41_Linguistic_Appellation in all links.</general_description>
       <source>
          <source_info>
-            <source_schema schema_file="SYNONYMS-12.xml" type="xml" version="">SYNONYMS-12</source_schema>
+            <source_schema schema_file="SYNONYMS.xml" type="xml" version="">SYNONYMS</source_schema>
             <namespaces>
                <namespace prefix="" uri=""/>
             </namespaces>
@@ -18,21 +18,20 @@
          <target_info>
             <target_schema schema_file="CIDOC_CRM_v7.1.1.rdfs" type="rdfs" version="">CIDOC CRM</target_schema>
             <namespaces>
-               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
-               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
                <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
                <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
                <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
             </namespaces>
          </target_info>
          <target_info>
             <target_schema schema_file="CIDOC_CRM_v7.1.2_PC.rdf" type="rdf" version="">CIDOC_CRM_v7.1.2_PC</target_schema>
             <namespaces>
-               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
-               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
                <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
                <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-               <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
                <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
             </namespaces>
          </target_info>
@@ -84,8 +83,8 @@
                   <type>crm:E42_Identifier</type>
                   <type>marinetlo:BC32_Identifier</type>
                   <instance_generator name="LocalTermURI">
-                     <arg name="hierarchy" type="xpath">concat('Species/', C_SpecCode/text())</arg>
-                     <arg name="term" type="xpath">concat('Scientific_Name_Id/', C_SynCode/text())</arg>
+                     <arg name="hierarchy" type="constant">synonym</arg>
+                     <arg name="term" type="xpath">C_SynCode/text()</arg>
                   </instance_generator>
                   <label_generator name="SimpleLabel">
                      <arg name="label" type="xpath">C_SynCode/text()</arg>
@@ -95,10 +94,10 @@
                      <entity>
                         <type>crm:E55_Type</type>
                         <instance_generator name="TypeURI">
-                           <arg name="type" type="constant">Scientific_Name_Code</arg>
+                           <arg name="type" type="constant">synonym_code</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
-                           <arg name="label" type="constant">scientific name code</arg>
+                           <arg name="label" type="constant">synonym code</arg>
                         </label_generator>
                      </entity>
                   </additional>
@@ -139,18 +138,41 @@
             <range>
                <source_node>C_SynSpecies</source_node>
                <target_node>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>text()</exists>
+                        </if>
+                        <if>
+                           <exists>../C_SynGenus/text()</exists>
+                        </if>
+                     </and>
+                  </if>
                   <entity variable="scientific_name">
                      <type>crm:E33_E41_Linguistic_Appellation</type>
                      <type>marinetlo:BC30_Appellation</type>
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">../C_SynGenus/text()</arg>
-                        <arg name="term" type="xpath">text()</arg>
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="term" type="constant">Appellation</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
                         <arg name="term1" type="xpath">../C_SynGenus/text()</arg>
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">appellation_type</arg>
+                              <arg name="term" type="constant">synonym_name</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">synonym name</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -174,6 +196,9 @@
             <range>
                <source_node>C_LastEpithet</source_node>
                <target_node>
+                  <if>
+                     <exists>text()</exists>
+                  </if>
                   <entity>
                      <type>crm:E33_E41_Linguistic_Appellation</type>
                      <type>marinetlo:BC30_Appellation</type>
@@ -673,6 +698,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">synonym_status</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">synonym status</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -712,6 +750,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">synonym_type</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">synonym type</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -741,21 +792,17 @@
                      <type>crm:E55_Type</type>
                      <instance_generator name="UUID"/>
                   </entity>
-                  <relationship>crm:P2_has_type</relationship>
+                  <relationship>crm:P3_has_note</relationship>
                </target_relation>
             </path>
             <range>
                <source_node>C_SynonymyDetail</source_node>
                <target_node>
                   <entity>
-                     <type>crm:E55_Type</type>
-                     <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="constant">Synonym_Type</arg>
-                        <arg name="term" type="xpath">text()</arg>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
-                     </label_generator>
                   </entity>
                </target_node>
             </range>
@@ -774,11 +821,6 @@
                      <instance_generator name="UUID"/>
                   </entity>
                   <relationship>crm:P2_has_type</relationship>
-                  <entity variable="synonymy">
-                     <type>crm:E55_Type</type>
-                     <instance_generator name="UUID"/>
-                  </entity>
-                  <relationship>crm:P2_has_type</relationship>
                </target_relation>
             </path>
             <range>
@@ -786,8 +828,9 @@
                <target_node>
                   <entity>
                      <type>crm:E55_Type</type>
-                     <instance_generator name="TypeURI">
-                        <arg name="type" type="xpath">text()</arg>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">synonym_combination</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
@@ -976,9 +1019,6 @@
                            <instance_generator name="TypeURI">
                               <arg name="type" type="xpath">../C_MisspellingDetail/text()</arg>
                            </instance_generator>
-                           <label_generator name="SimpleLabel">
-                              <arg name="label" type="xpath">../C_MisspellingDetail/text()</arg>
-                           </label_generator>
                         </entity>
                      </additional>
                   </entity>
@@ -1210,8 +1250,168 @@
                      <type>crm:E42_Identifier</type>
                      <type>marinetlo:BC32_Identifier</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
-                        <arg name="term" type="xpath">concat('Scientific_Name_Id/', text(), '/Original_Combination')</arg>
+                        <arg name="hierarchy" type="constant">synonym</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TaxonLevel</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX2_is_about_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TaxonLevel</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">biotic_element_type</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//SYNONYMS</source_node>
+            <target_node>
+               <if>
+                  <or>
+                     <if>
+                        <equals value="Genus">C_TaxonLevel/text()</equals>
+                     </if>
+                     <if>
+                        <equals value="Family">C_TaxonLevel/text()</equals>
+                     </if>
+                  </or>
+               </if>
+               <entity>
+                  <type>crm:E42_Identifier</type>
+                  <type>marinetlo:BC32_Identifier</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">synonym</arg>
+                     <arg name="term" type="xpath">C_SynCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SynCode/text()</arg>
+                  </label_generator>
+                  <additional>
+                     <relationship>crm:P2_has_type</relationship>
+                     <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="TypeURI">
+                           <arg name="type" type="constant">synonym_code</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                           <arg name="label" type="constant">synonym code</arg>
+                        </label_generator>
+                     </entity>
+                  </additional>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SpecCode</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="Not applicable">../C_Author/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LC1_identifies</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="ThingComplex2URI">
+                        <arg name="type" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="id" type="constant">Specimen</arg>
+                     </instance_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SpecCode</source_node>
+               <target_node>
+                  <entity variable="species_1">
+                     <type>marinetlo:BT27_Species</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Species</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynSpecies</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynSpecies</source_node>
+               <target_node>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="term" type="constant">Appellation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">../C_SynGenus/text()</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_LastEpithet</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P106_is_composed_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_LastEpithet</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Last_Epithet</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
@@ -1221,13 +1421,1673 @@
                         <entity>
                            <type>crm:E55_Type</type>
                            <instance_generator name="TypeURI">
-                              <arg name="type" type="constant">Foreign_Key</arg>
+                              <arg name="type" type="constant">Last_Epithet</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">foreign key</arg>
+                              <arg name="label" type="constant">last epithet</arg>
                            </label_generator>
                         </entity>
                      </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Comment</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Comment</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Etymology</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P67i_is_referred_to_by</relationship>
+                  <entity>
+                     <type>crm:E33_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="constant">Etymology</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">etymology of </arg>
+                        <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Etymology</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Valid</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Valid</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Valid_Scientific_Name</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">valid scientific name</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Valid</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Valid</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Invalid_Scientific_Name_(Synonym)</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">synonym (invalid scientific name)</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Status</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Status</source_node>
+               <target_node>
+                  <entity variable="synonym_status">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="xpath">concat('Synonym_Status/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">synonym_status</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">synonym status</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Synonymy</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Synonymy</source_node>
+               <target_node>
+                  <entity variable="synonymy">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="xpath">concat('Synonym_Type/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Combination</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+                  <entity variable="synonymy">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Combination</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">synonym_combination</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Combination_Type</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">combination type</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynOC</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynOC</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E42_Identifier</type>
+                     <type>marinetlo:BC32_Identifier</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">synonym</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>/dataroot/SYNONYMS/C_MisspellingDetail</source_node>
+            <target_node>
+               <entity>
+                  <type>crm:E55_Type</type>
+                  <instance_generator name="TypeURI">
+                     <arg name="type" type="xpath">text()</arg>
+                  </instance_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="ISSsp">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect Subsequent Spelling of species</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="ISSgen">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect Subsequent Spelling of genus</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="IOSsp">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect original Spelling of species</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="IOSgen">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect original Spelling of genus</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="MCSsp">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Mandatory Change in Spelling of species</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="MCSgen">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Mandatory Change in Spelling of genus</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="COS">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Correct Original Spelling</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="IOSmult">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect Original Spelling multiple names</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="IOSsuc">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Incorrect Original Spelling species epithet upper case</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="JE">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Justified emendation</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="UE">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Unjustified emendation</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>../C_MisspellingDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="LC">text()</equals>
+                  </if>
+                  <relationship>rdfs:label</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>../C_MisspellingDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="constant">Lapsus calami</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//SYNONYMS</source_node>
+            <target_node>
+               <if>
+                  <or>
+                     <if>
+                        <equals value="Subspecies">C_TaxonLevel/text()</equals>
+                     </if>
+                     <if>
+                        <equals value="Nominotypical">C_TaxonLevel/text()</equals>
+                     </if>
+                  </or>
+               </if>
+               <entity>
+                  <type>crm:E42_Identifier</type>
+                  <type>marinetlo:BC32_Identifier</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">synonym</arg>
+                     <arg name="term" type="xpath">C_SynCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SynCode/text()</arg>
+                  </label_generator>
+                  <additional>
+                     <relationship>crm:P2_has_type</relationship>
+                     <entity>
+                        <type>crm:E55_Type</type>
+                        <instance_generator name="TypeURI">
+                           <arg name="type" type="constant">synonym_code</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                           <arg name="label" type="constant">synonym code</arg>
+                        </label_generator>
+                     </entity>
+                  </additional>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SpecCode</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX1_identifies</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SpecCode</source_node>
+               <target_node>
+                  <entity variable="species_1">
+                     <type>marinetlo:BT27_Species</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Species</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynOC</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynOC</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E42_Identifier</type>
+                     <type>marinetlo:BC32_Identifier</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">synonym</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynSpecies</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynSpecies</source_node>
+               <target_node>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="term" type="constant">Appellation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">../C_SynGenus/text()</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">appellation_type</arg>
+                              <arg name="term" type="constant">synonym_code</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">synonym code</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_LastEpithet</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P106_is_composed_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_LastEpithet</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Last_Epithet</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Last_Epithet</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">last epithet</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Author</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <not>
+                              <if>
+                                 <exists>.[contains(., ')')]</exists>
+                              </if>
+                           </not>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <exists>.[contains(., '(')]</exists>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC9_was_assigned_by</relationship>
+                  <entity variable="scientific_name_assignment_or">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="constant">Scientific_Name_Assignment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">scientific name assignment of</arg>
+                        <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC2_is_referred_by</relationship>
+                        <entity>
+                           <type>marinetlo:BC27_Publication</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">Publication</arg>
+                              <arg name="term" type="xpath">text()</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="xpath">text()</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC13_is_carried_out_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Author</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">substring-before(text(), ',')</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">substring-before(text(), ',')</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Year</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <not>
+                              <if>
+                                 <exists>../C_Author/text()[contains(., ')')]</exists>
+                              </if>
+                           </not>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <exists>../C_Author/text()[contains(., '(')]</exists>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC9_was_assigned_by</relationship>
+                  <entity variable="scientific_name_assignment_or">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC5_has_time_span</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Year</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC2_Time_Span</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(), '/Scientific_Name_Assignment')</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Author</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>.[contains(., ')')]</exists>
+                        </if>
+                        <if>
+                           <exists>.[contains(., '(')]</exists>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC9_was_assigned_by</relationship>
+                  <entity variable="scientific_name_assignment_2">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="constant">Scientific_Name_Assignment</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">scientific name assignment of</arg>
+                        <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC2_is_referred_by</relationship>
+                        <entity>
+                           <type>marinetlo:BC27_Publication</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">Publication</arg>
+                              <arg name="term" type="xpath">text()</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="xpath">text()</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P182_ends_before_or_with_the_start_of</relationship>
+                        <entity>
+                           <type>crm:E17_Type_Assignment</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="xpath">concat('Species/', ../S_SpecCode/text())</arg>
+                              <arg name="term" type="constant">Renaming</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC13_is_carried_out_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Author</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC11_Person</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Person</arg>
+                        <arg name="term" type="xpath">substring-after(substring-before(text(), ','),'(')</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">substring-after(substring-before(text(), ','),'(')</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Year</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>../C_Author/text()[contains(., ')')]</exists>
+                        </if>
+                        <if>
+                           <exists>../C_Author/text()[contains(., '(')]</exists>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC9_was_assigned_by</relationship>
+                  <entity variable="scientific_name_assignment_2">
+                     <type>marinetlo:BC44_Attribute_Assignment</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC5_has_time_span</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Year</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC2_Time_Span</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(), '/Scientific_Name_Assignment')</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Comment</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Comment</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Etymology</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P67i_is_referred_to_by</relationship>
+                  <entity>
+                     <type>crm:E33_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="constant">Etymology</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">etymology of </arg>
+                        <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Etymology</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Eponym</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P106_is_composed_of</relationship>
+                  <entity>
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Constituent</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">constituent</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Eponym</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">eponym</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>crm:P3_has_note</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Eponym</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">../C_EponymShortAccount/text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Status</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Status</source_node>
+               <target_node>
+                  <entity variable="synonym_status">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="xpath">concat('Synonym_Status/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Synonymy</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Synonymy</source_node>
+               <target_node>
+                  <entity variable="synonymy">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="term" type="xpath">concat('Synonym_Type/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_SynonymyDetail</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <not>
+                        <if>
+                           <equals value="">text()</equals>
+                        </if>
+                     </not>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+                  <entity variable="synonymy">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_SynonymyDetail</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Synonym_Type</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Combination</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+                  <entity variable="synonymy">
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Combination</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">synonym_combination</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Combination_Type</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">combination type</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_OriginalPub</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P67i_is_referred_to_by</relationship>
+                  <entity>
+                     <type>crm:E33_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Publication</arg>
+                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_Author/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_OriginalPub</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Original_Publication</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">original publication</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_OriginalPub</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P67i_is_referred_to_by</relationship>
+                  <entity>
+                     <type>crm:E33_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Publication</arg>
+                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">../C_Author/text()</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_OriginalPub</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Subsequent_Publication</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">subsequent publication</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Misspelling</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Misspelling</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Misspelled_Name</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">misspelled name</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="xpath">../C_MisspellingDetail/text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Misspelling</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Misspelling</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Correct_Spelling</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">correct spelling</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_NounApposition</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P106_is_composed_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_NounApposition</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Specific_Epithet</arg>
+                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specific epithet</arg>
+                        <arg name="term2" type="xpath">../C_SynSpecies/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Noun_Apposition</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">noun apposition</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_NounApposition</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P106_is_composed_of</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_NounApposition</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Specific_Epithet</arg>
+                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specific epithet</arg>
+                        <arg name="term2" type="xpath">../C_SynSpecies/text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Adjective</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">adjective</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Protonym</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Protonym</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Protonym</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">protonym</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Basionym</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>crm:P1i_identifies</relationship>
+                  <entity variable="scientific_name">
+                     <type>crm:E33_E41_Linguistic_Appellation</type>
+                     <type>marinetlo:BC30_Appellation</type>
+                     <type>marinetlo:BC25_Linguistic_Object</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Basionym</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Basionym</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">basionym</arg>
+                     </label_generator>
                   </entity>
                </target_node>
             </range>
