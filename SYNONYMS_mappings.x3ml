@@ -274,7 +274,7 @@
                            <type>marinetlo:BC27_Publication</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Publication</arg>
-                              <arg name="term" type="xpath">text()</arg>
+                              <arg name="term" type="xpath">../C_SynCode/text()</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="xpath">text()</arg>
@@ -396,7 +396,7 @@
                            <type>marinetlo:BC27_Publication</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Publication</arg>
-                              <arg name="term" type="xpath">text()</arg>
+                              <arg name="term" type="xpath">../C_SynCode/text()</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="xpath">text()</arg>
@@ -872,7 +872,7 @@
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Publication</arg>
-                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                        <arg name="term" type="xpath">../C_SynCode/text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">../C_Author/text()</arg>
@@ -917,7 +917,7 @@
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Publication</arg>
-                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                        <arg name="term" type="xpath">../C_SynCode/text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">../C_Author/text()</arg>
@@ -2290,7 +2290,7 @@
                            <type>marinetlo:BC27_Publication</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Publication</arg>
-                              <arg name="term" type="xpath">text()</arg>
+                              <arg name="term" type="xpath">../C_SynCode/text()</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="xpath">text()</arg>
@@ -2412,7 +2412,7 @@
                            <type>marinetlo:BC27_Publication</type>
                            <instance_generator name="LocalTermURI">
                               <arg name="hierarchy" type="constant">Publication</arg>
-                              <arg name="term" type="xpath">text()</arg>
+                              <arg name="term" type="xpath">../C_SynCode/text()</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="xpath">text()</arg>
@@ -2803,7 +2803,7 @@
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Publication</arg>
-                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                        <arg name="term" type="xpath">../C_SynCode/text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">../C_Author/text()</arg>
@@ -2848,7 +2848,7 @@
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Publication</arg>
-                        <arg name="term" type="xpath">../C_Author/text()</arg>
+                        <arg name="term" type="xpath">../C_SynCode/text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">../C_Author/text()</arg>
