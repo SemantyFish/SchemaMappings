@@ -153,7 +153,7 @@
                      <type>marinetlo:BC30_Appellation</type>
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()../C_SynCode/text()),'/')</arg>
                         <arg name="term" type="constant">Appellation</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -261,7 +261,7 @@
                   <entity variable="scientific_name_assignment_or">
                      <type>marinetlo:BC44_Attribute_Assignment</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Scientific_Name_Assignment</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -383,7 +383,7 @@
                   <entity variable="scientific_name_assignment_2">
                      <type>marinetlo:BC44_Attribute_Assignment</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Scientific_Name_Assignment</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -525,7 +525,7 @@
                   <entity>
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Etymology</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -692,7 +692,7 @@
                   <entity variable="synonym_status">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Status/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -744,7 +744,7 @@
                   <entity variable="synonymy">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Type/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -1087,7 +1087,7 @@
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Specific_Epithet</arg>
-                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                        <arg name="term" type="xpath">concat(../C_SynSpecies/text(),../C_SynCode/text())</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
                         <arg name="term1" type="constant">specific epithet</arg>
@@ -1137,7 +1137,7 @@
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Specific_Epithet</arg>
-                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                        <arg name="term" type="xpath">concat(../C_SynSpecies/text(),../C_SynCode/text())</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
                         <arg name="term1" type="constant">specific epithet</arg>
@@ -1375,7 +1375,7 @@
                      <type>marinetlo:BC30_Appellation</type>
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text(),../C_SynCode/text()),'/')</arg>
                         <arg name="term" type="constant">Appellation</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -1477,7 +1477,7 @@
                   <entity>
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Etymology</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -1590,7 +1590,7 @@
                   <entity variable="synonym_status">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Status/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -1642,7 +1642,7 @@
                   <entity variable="synonymy">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Type/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -2172,7 +2172,7 @@
                      <type>marinetlo:BC30_Appellation</type>
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()),'/')</arg>
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text(),../C_SynCode/text()),'/')</arg>
                         <arg name="term" type="constant">Appellation</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -2277,7 +2277,7 @@
                   <entity variable="scientific_name_assignment_or">
                      <type>marinetlo:BC44_Attribute_Assignment</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Scientific_Name_Assignment</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -2362,7 +2362,7 @@
                   <entity>
                      <type>marinetlo:BC2_Time_Span</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(), '/Scientific_Name_Assignment')</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text(), '/Scientific_Name_Assignment')</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -2399,7 +2399,7 @@
                   <entity variable="scientific_name_assignment_2">
                      <type>marinetlo:BC44_Attribute_Assignment</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Scientific_Name_Assignment</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -2486,7 +2486,7 @@
                   <entity>
                      <type>marinetlo:BC2_Time_Span</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(), '/Scientific_Name_Assignment')</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text(), '/Scientific_Name_Assignment')</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -2541,7 +2541,7 @@
                   <entity>
                      <type>crm:E33_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="constant">Etymology</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
@@ -2640,7 +2640,7 @@
                   <entity variable="synonym_status">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Status/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -2679,7 +2679,7 @@
                   <entity variable="synonymy">
                      <type>crm:E55_Type</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat(../C_SynGenus/text(), '/', ../C_SynSpecies/text(),../C_SynCode/text())</arg>
                         <arg name="term" type="xpath">concat('Synonym_Type/', text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
@@ -2977,7 +2977,7 @@
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Specific_Epithet</arg>
-                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                        <arg name="term" type="xpath">concat(../C_SynSpecies/text(),../C_SynCode/text())</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
                         <arg name="term1" type="constant">specific epithet</arg>
@@ -3027,7 +3027,7 @@
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Specific_Epithet</arg>
-                        <arg name="term" type="xpath">../C_SynSpecies/text()</arg>
+                        <arg name="term" type="xpath">concat(../C_SynSpecies/text(),../C_SynCode/text())</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
                         <arg name="term1" type="constant">specific epithet</arg>
