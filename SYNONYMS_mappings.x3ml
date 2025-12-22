@@ -153,7 +153,7 @@
                      <type>marinetlo:BC30_Appellation</type>
                      <type>marinetlo:BC25_Linguistic_Object</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text()../C_SynCode/text()),'/')</arg>
+                        <arg name="hierarchy" type="xpath">string-join((../C_SynGenus/text(),text(),../C_SynCode/text()),'/')</arg>
                         <arg name="term" type="constant">Appellation</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
