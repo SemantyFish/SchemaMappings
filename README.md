@@ -14,5 +14,5 @@ The table below describes the schema mappings that are used and contains links t
 | ORDERS  | [ORDERS_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ORDERS_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/085756 |
 | CLASSES  | [CLASSES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/CLASSES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/249381 |
 | COMNAMES  | [COMNAMES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/COMNAMES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/582654 |
-| SYNONYMS  | -- | https://demos.isl.ics.forth.gr/3m/MappingTableView/707728 https://demos.isl.ics.forth.gr/3m/MappingTableView/941168 https://demos.isl.ics.forth.gr/3m/MappingTableView/957251 |
+| SYNONYMS  | -- | https://demos.isl.ics.forth.gr/3m/MappingTableView/744599/ |
 | STOCKS  | -- | https://demos.isl.ics.forth.gr/3m/MappingTableView/765424 |
