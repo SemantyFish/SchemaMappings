@@ -532,6 +532,19 @@
                         <arg name="term1" type="constant">etymology of </arg>
                         <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">etymology</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">etymology</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>crm:P3_has_note</relationship>
                </target_relation>
@@ -1484,6 +1497,19 @@
                         <arg name="term1" type="constant">etymology of </arg>
                         <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">etymology</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">etymology</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>crm:P3_has_note</relationship>
                </target_relation>
@@ -2548,6 +2574,19 @@
                         <arg name="term1" type="constant">etymology of </arg>
                         <arg name="term2" type="xpath">concat(../C_SynGenus/text(), ' ', ../C_SynSpecies/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">etymology</arg>
+                           </instance_generator>
+                           <label_generator name="Literal">
+                              <arg name="text" type="constant">etymology</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>crm:P3_has_note</relationship>
                </target_relation>
