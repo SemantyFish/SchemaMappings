@@ -200,7 +200,7 @@
                         <entity>
                            <type>xsd:string</type>
                            <instance_generator name="Literal">
-                              <arg name="text" type="xpath">text()</arg>
+                              <arg name="text" type="xpath">../C_StockDefs/text()</arg>
                            </instance_generator>
                         </entity>
                      </additional>
@@ -384,6 +384,18 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -433,6 +445,18 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">maximum pH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -2151,6 +2175,18 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -2200,6 +2236,18 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">maximum pH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -3923,6 +3971,18 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3972,6 +4032,18 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">maximum pH</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">ph</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">PH</arg>
                            </label_generator>
                         </entity>
                      </additional>
