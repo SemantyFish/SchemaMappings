@@ -16,3 +16,4 @@ The table below describes the schema mappings that are used and contains links t
 | COMNAMES  | [COMNAMES_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/COMNAMES_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/582654 |
 | SYNONYMS  | [SYNONYMS_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/SYNONYMS_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/744599 |
 | STOCKS  | [STOCKS_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/STOCKS_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/000934 |
+| COUNTRY  | [COUNTRY_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/COUNTRY_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/545650 |
