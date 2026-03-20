@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      source_type="xpath"
-      version="1.0"
-      xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" source_type="xpath" version="1.0" xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
    <info>
       <title>SemantyFish: COUNTREF</title>
       <general_description>Mappings for the table Stocks [does not associate BC3 Place and BC20 Declarative Place. Goes through BC15 Water Area]</general_description>
@@ -37,12 +34,9 @@
             </namespaces>
          </target_info>
          <target_info>
-            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl"
-                           type="owl"
-                           version="">marinetlo_semantyFish_ext5_5</target_schema>
+            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl" type="owl" version="">marinetlo_semantyFish_ext5_5</target_schema>
             <namespaces>
-               <namespace prefix="marinetlo"
-                          uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+               <namespace prefix="marinetlo" uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
                <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
                <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
                <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
@@ -84,6 +78,9 @@
                      <arg name="hierarchy" type="constant">Country_Code</arg>
                      <arg name="term" type="xpath">C_C_Code/text()</arg>
                   </instance_generator>
+                  <label_generator name="Literal">
+                     <arg name="text" type="xpath">C_PAESE/text()</arg>
+                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -406,10 +403,10 @@
                      <type>marinetlo:BC20_Declarative_Place</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Coordinates</arg>
-                        <arg name="term" type="xpath">concat(text(), "°", ../C_LatMin/text(), "'",  ../C_NorthSouth/text(), ",", ../C_LongDeg/text(), "°", ../C_LongMin/text(), "'",  ../C_EastWest/text())</arg>
+                        <arg name="term" type="xpath">concat(text(), "-", ../C_LatMin/text(), "'",  ../C_NorthSouth/text(), ",", ../C_LongDeg/text(), "-", ../C_LongMin/text(), "'",  ../C_EastWest/text())</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">concat(text(), "°", ../C_LatMin/text(), "'",  ../C_NorthSouth/text(), ",", ../C_LongDeg/text(), "°", ../C_LongMin/text(), "'",  ../C_EastWest/text())</arg>
+                        <arg name="label" type="xpath">concat(text(), "O ", ../C_LatMin/text(), "'",  ../C_NorthSouth/text(), ",", ../C_LongDeg/text(), "O ", ../C_LongMin/text(), "'",  ../C_EastWest/text())</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
