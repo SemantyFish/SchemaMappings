@@ -189,6 +189,18 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT35_Property_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">abbreviation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">abbreviation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -211,9 +223,6 @@
                         <arg name="hierarchy" type="constant">Country_Code</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
-                     </label_generator>
                   </entity>
                </target_node>
             </range>
@@ -244,10 +253,10 @@
                   <entity>
                      <type>marinetlo:BC27_Publication</type>
                      <instance_generator name="TypeURI">
-                        <arg name="type" type="constant">ISO_3166-1</arg>
+                        <arg name="type" type="constant">ISO_3166-1_numeric</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="constant">ISO_3166-1</arg>
+                        <arg name="label" type="constant">ISO_3166-1 numeric</arg>
                      </label_generator>
                   </entity>
                </target_node>
@@ -279,10 +288,10 @@
                   <entity>
                      <type>marinetlo:BC27_Publication</type>
                      <instance_generator name="TypeURI">
-                        <arg name="type" type="constant">ISO_3166-1</arg>
+                        <arg name="type" type="constant">ISO_3166-1_alpha-2</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="constant">ISO_3166-1</arg>
+                        <arg name="label" type="constant">ISO_3166-1 alpha-2</arg>
                      </label_generator>
                   </entity>
                </target_node>
@@ -314,10 +323,10 @@
                   <entity>
                      <type>marinetlo:BC27_Publication</type>
                      <instance_generator name="TypeURI">
-                        <arg name="type" type="constant">ISO_3166-1</arg>
+                        <arg name="type" type="constant">ISO_3166-1-alpha-3</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="constant">ISO_3166-1</arg>
+                        <arg name="label" type="constant">ISO_3166-1 alpha-3</arg>
                      </label_generator>
                   </entity>
                </target_node>
