@@ -262,9 +262,6 @@
                         <arg name="hierarchy" type="constant">Habitat</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
-                     </label_generator>
                   </entity>
                </target_node>
             </range>
@@ -299,9 +296,6 @@
                         <arg name="hierarchy" type="constant">Habitat</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
-                     </label_generator>
                   </entity>
                </target_node>
             </range>
@@ -334,9 +328,6 @@
                         <arg name="hierarchy" type="constant">Habitat</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">text()</arg>
-                     </label_generator>
                   </entity>
                </target_node>
             </range>
