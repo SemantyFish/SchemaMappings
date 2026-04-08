@@ -197,6 +197,19 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">area_dimension</arg>
+                              <arg name="term" type="constant">coastline_length</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="text" type="constant">coastline length</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -277,6 +290,19 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">area (measurement)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">area_dimension</arg>
+                              <arg name="term" type="constant">shelf_area_size</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="text" type="constant">shelf area size</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -363,6 +389,19 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">area_dimension</arg>
+                              <arg name="term" type="constant">eez_area_size</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="text" type="constant">eez area size</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -383,11 +422,10 @@
                      <type>marinetlo:BC20_Declarative_Place</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Centerpoint</arg>
-                        <arg name="term" type="xpath">concat("(", text(), "o", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "o", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
+                        <arg name="term" type="xpath">concat("(", text(), "-", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "-", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">concat("(", text(), "^o", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",
-       ../C_LongDeg/text(), "^o", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
+                        <arg name="label" type="xpath">concat("(", text(), "^o", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "^o", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
                      </label_generator>
                   </entity>
                </target_node>
