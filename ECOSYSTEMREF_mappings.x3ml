@@ -149,7 +149,7 @@
                               <arg name="text" type="constant">http://vocab.getty.edu/page/aat/300404664</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">aliases </arg>
+                              <arg name="label" type="constant">aliases</arg>
                            </label_generator>
                         </entity>
                      </additional>
