@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      source_type="xpath"
-      version="1.0"
-      xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
+<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" source_type="xpath" version="1.0" xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
    <info>
       <title>SemantyFish: FAO_AREA</title>
       <general_description>Mappings for the table Stocks [does not associate BC3 Place and BC20 Declarative Place. Goes through BC15 Water Area]</general_description>
@@ -37,12 +34,9 @@
             </namespaces>
          </target_info>
          <target_info>
-            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl"
-                           type="owl"
-                           version="">marinetlo_semantyFish_ext5_5</target_schema>
+            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl" type="owl" version="">marinetlo_semantyFish_ext5_5</target_schema>
             <namespaces>
-               <namespace prefix="marinetlo"
-                          uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+               <namespace prefix="marinetlo" uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
                <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
                <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
                <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
@@ -173,6 +167,33 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_StockCode</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LC8_was_present_at</relationship>
+                  <entity>
+                     <type>marinetlo:BC76_Stock_Formation</type>
+                     <instance_generator name="UUID"/>
+                  </entity>
+                  <relationship>marinetlo:LC61_took_place_on_or_within</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_StockCode</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC75_Stock</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Stock</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
                   </entity>
                </target_node>
             </range>
