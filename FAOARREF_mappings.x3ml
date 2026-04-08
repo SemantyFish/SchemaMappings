@@ -383,10 +383,11 @@
                      <type>marinetlo:BC20_Declarative_Place</type>
                      <instance_generator name="LocalTermURI">
                         <arg name="hierarchy" type="constant">Centerpoint</arg>
-                        <arg name="term" type="xpath">concat("(", text(), "°", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "°", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
+                        <arg name="term" type="xpath">concat("(", text(), "o", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "o", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
                      </instance_generator>
                      <label_generator name="SimpleLabel">
-                        <arg name="label" type="xpath">concat("(", text(), "°", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",../C_LongDeg/text(), "°", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
+                        <arg name="label" type="xpath">concat("(", text(), "^o", ../C_LatMin/text(), "'", ../C_N_S/text(), ",",
+       ../C_LongDeg/text(), "^o", ../C_LongMin/text(), "'", ../C_E_W/text(), ")")</arg>
                      </label_generator>
                   </entity>
                </target_node>
