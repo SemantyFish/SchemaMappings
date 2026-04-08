@@ -206,7 +206,7 @@
                               <arg name="term" type="constant">coastline_length</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="text" type="constant">coastline length</arg>
+                              <arg name="label" type="constant">coastline length</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -302,7 +302,7 @@
                               <arg name="term" type="constant">shelf_area_size</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="text" type="constant">shelf area size</arg>
+                              <arg name="label" type="constant">shelf area size</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -398,7 +398,7 @@
                               <arg name="term" type="constant">eez_area_size</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="text" type="constant">eez area size</arg>
+                              <arg name="label" type="constant">eez area size</arg>
                            </label_generator>
                         </entity>
                      </additional>
