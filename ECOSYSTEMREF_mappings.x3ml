@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      source_type="xpath"
-      version="1.0"
-      xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
+<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" source_type="xpath" version="1.0" xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
    <info>
       <title>SemantyFish: ECOSYSTEMREF</title>
       <general_description/>
@@ -37,12 +34,9 @@
             </namespaces>
          </target_info>
          <target_info>
-            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl"
-                           type="owl"
-                           version="">marinetlo_semantyFish_ext5_5</target_schema>
+            <target_schema schema_file="marinetlo_semantyFish_ext5_5.owl" type="owl" version="">marinetlo_semantyFish_ext5_5</target_schema>
             <namespaces>
-               <namespace prefix="marinetlo"
-                          uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+               <namespace prefix="marinetlo" uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
                <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
                <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
                <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
@@ -183,6 +177,19 @@
                      <label_generator name="SimpleLabel">
                         <arg name="label" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">resource_type</arg>
+                              <arg name="term" type="constant">ecosystem_type</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">ecosystem type</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
