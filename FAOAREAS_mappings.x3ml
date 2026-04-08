@@ -124,10 +124,6 @@
                         <arg name="hierarchy" type="constant">FAO_Area</arg>
                         <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">FAO area</arg>
-                        <arg name="term2" type="xpath">text()</arg>
-                     </label_generator>
                      <additional>
                         <relationship>owl:sameAs</relationship>
                         <entity>
