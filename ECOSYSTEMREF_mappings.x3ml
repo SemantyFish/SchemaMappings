@@ -250,7 +250,7 @@
                   <relation>C_E_CODE_Large</relation>
                </source_relation>
                <target_relation>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                </target_relation>
             </path>
             <range>
@@ -279,12 +279,12 @@
                         </if>
                      </not>
                   </if>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                   <entity variable="MEWO_Large">
                      <type>marinetlo:BC15_Water_Area</type>
                      <instance_generator name="UUID"/>
                   </entity>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                </target_relation>
             </path>
             <range>
@@ -306,17 +306,17 @@
                   <relation>C_E_CODE_Largest</relation>
                </source_relation>
                <target_relation>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                   <entity variable="MEWO_Large">
                      <type>marinetlo:BC15_Water_Area</type>
                      <instance_generator name="UUID"/>
                   </entity>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                   <entity variable="MEOW_Larger">
                      <type>marinetlo:BC15_Water_Area</type>
                      <instance_generator name="UUID"/>
                   </entity>
-                  <relationship>marinetlo:LC16_forms_part_of</relationship>
+                  <relationship>marinetlo:LC10_belongs_to</relationship>
                </target_relation>
             </path>
             <range>
