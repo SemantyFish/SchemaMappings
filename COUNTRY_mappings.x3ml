@@ -74,8 +74,8 @@
                <entity>
                   <type>marinetlo:BC75_Stock</type>
                   <instance_generator name="LocalTermURI">
-                     <arg name="hierarchy" type="xpath">concat('Species/', C_SpecCode/text(), '/Stock/', C_Stockcode/text())</arg>
-                     <arg name="term" type="xpath">concat('C_Code/', C_C_Code/text())</arg>
+					 <arg name="hierarchy" type="constant">Stock</arg>
+                     <arg name="term" type="xpath">C_Stockcode/text()</arg>
                   </instance_generator>
                   <label_generator name="CompositeLabel">
                      <arg name="term1" type="xpath">concat('species ID ', C_SpecCode/text())</arg>
