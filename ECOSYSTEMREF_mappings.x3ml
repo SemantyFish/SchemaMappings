@@ -485,7 +485,7 @@
                   <entity>
                      <type>marinetlo:BC5_Dimension</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="constant">concat('Habitat/', ../C_E_CODE/text())</arg>
+                        <arg name="hierarchy" type="xpath">concat('Habitat/', ../C_E_CODE/text())</arg>
                         <arg name="term" type="constant">Length</arg>
                      </instance_generator>
                      <label_generator name="CompositeLabel">
