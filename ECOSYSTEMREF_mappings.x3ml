@@ -548,6 +548,19 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">dimension_type</arg>
+                              <arg name="term" type="constant">area_size</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">area size</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -874,6 +887,19 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">dimension_type</arg>
+                              <arg name="term" type="constant">maximum depth</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum depth</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -918,6 +944,19 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">m</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">dimension_type</arg>
+                              <arg name="term" type="constant">average_depth</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">average depth</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -968,6 +1007,19 @@
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">dimension_type</arg>
+                              <arg name="term" type="constant">surface_temperature</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">surface temperature</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -1012,6 +1064,19 @@
                            </instance_generator>
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">Celsius</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">dimension_type</arg>
+                              <arg name="term" type="constant">depth_temperature</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">depth temperature</arg>
                            </label_generator>
                         </entity>
                      </additional>
