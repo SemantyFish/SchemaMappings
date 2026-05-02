@@ -212,9 +212,8 @@
                         <arg name="hierarchy" type="xpath">concat('Habitat/', ../C_E_CODE/text())</arg>
                         <arg name="term" type="xpath">concat('MEOW/Identifier/', text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">MEOW ID</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LC2_is_referred_by</relationship>
