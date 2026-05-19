@@ -20,4 +20,5 @@ The table below describes the schema mappings that are used and contains links t
 | COUNTREF  | [COUNTREF_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/COUNTREF_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/339998 |
 | FAOAREAS  | [FAOAREAS_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/FAOAREAS_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/320448 |
 | FAOARREF  | [FAOARREF_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/FAOARREF_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/458012 |
+| ECOSYSTEM  | [ECOSYSTEM_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ECOSYSTEM_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/211584 |
 | ECOSYSTEMREF  | [ECOSYSTEMREF_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ECOSYSTEMREF_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/191920 |
