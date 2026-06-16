@@ -782,8 +782,8 @@
                   <entity>
                      <type>crm:E53_Place</type>
                      <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">text()</arg>
-                        <arg name="term" type="constant">FAO_Area</arg>
+                        <arg name="hierarchy" type="constant">Country_Code</arg>
+                        <arg name="term" type="xpath">text()</arg>
                      </instance_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
