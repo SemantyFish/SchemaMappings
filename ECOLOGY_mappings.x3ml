@@ -1578,6 +1578,202 @@ i've switched back to almost exclusively using marine-tlo classes and properties
          <link>
             <path>
                <source_relation>
+                  <relation>C_Sessile</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Sessile</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">sessile</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Benthic_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">benthic environment</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Sessile</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Substrate_Type</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">type of substrate</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Mobile</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Mobile</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">mobile</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Benthic_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">benthic environment</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Mobile</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Substrate_Type</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">type of substrate</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Demersal</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Demersal</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">demersal</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Benthic_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">benthic environment</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Demersal</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Substrate_Type</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">type of substrate</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Endofauna</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">text()</equals>
+                  </if>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Endofauna</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">endofauna</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LT8_usually_belongs_to</relationship>
+                  <entity>
+                     <type>marinetlo:BT3_Physical_Thing_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Benthic_Environment</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">benthic environment</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P2_has_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Endofauna</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E55_Type</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="constant">Substrate_Type</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="constant">type of substrate</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
                   <relation>C_Pelagic</relation>
                </source_relation>
                <target_relation>
