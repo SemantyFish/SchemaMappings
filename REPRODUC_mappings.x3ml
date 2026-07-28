@@ -81,6 +81,7 @@ i've switched back to almost exclusively using marine-tlo classes and properties
             <target_node>
                <entity>
                   <type>marinetlo:BT27_Species</type>
+                  <type>crm:E20_Biological_Object</type>
                   <instance_generator name="LocalTermURI">
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
@@ -1254,6 +1255,28 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">likelihood: </arg>
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_autoctr</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>crm:P67i_is_referred_to_by</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_autoctr</source_node>
+               <target_node>
+                  <entity>
+                     <type>crm:E73_Information_Object</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">reproduction</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
                   </entity>
                </target_node>
             </range>
