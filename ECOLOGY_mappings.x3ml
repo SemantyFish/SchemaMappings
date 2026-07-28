@@ -4867,7 +4867,7 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                </target_relation>
             </path>
             <range>
-               <source_node>C_DietSeTroph</source_node>
+               <source_node>C_FoodSeTroph</source_node>
                <target_node>
                   <entity>
                      <type>marinetlo:BC5_Dimension</type>
