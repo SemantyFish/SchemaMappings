@@ -85,9 +85,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
