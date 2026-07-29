@@ -1225,9 +1225,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
@@ -1274,9 +1273,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
@@ -1338,9 +1336,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
@@ -1402,9 +1399,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
@@ -1466,9 +1462,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
@@ -1530,9 +1525,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Parental_Care_Provider/', ../C_ParentalCare/text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="xpath">../C_ParentalCare/text()</arg>
-                        <arg name="term2" type="constant">(parental care provider)</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">../C_ParentalCare/text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>crm:P2_has_type</relationship>
