@@ -84,9 +84,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -107,6 +104,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Ca concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">calcium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">calcium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -119,6 +129,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median Ca concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -178,6 +201,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Ca concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">calcium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">calcium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -190,6 +226,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Ca concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -249,6 +298,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Ca concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">calcium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">calcium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -261,6 +323,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Ca concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -320,6 +395,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Fe concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">iron_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">iron concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -332,6 +420,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median Fe concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -391,6 +492,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Fe concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">iron_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">iron concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -403,6 +517,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Fe concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -462,6 +589,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Fe concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">iron_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">iron concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -474,6 +614,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Fe concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -533,6 +686,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">omega_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">omega concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -545,6 +711,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median omega-3 fatty acids concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -604,6 +783,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">omega_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">omega concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -616,6 +808,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">omega-3 fatty acids concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -675,6 +880,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">omega_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">omega concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -687,6 +905,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">omega-3 fatty acids concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -746,6 +977,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">protein concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">protein_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">protein concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -758,6 +1002,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median protein concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -817,6 +1074,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">protein concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">protein_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">protein concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -829,6 +1099,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">protein concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -888,6 +1171,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">protein concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">protein_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">protein concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -900,6 +1196,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">protein concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -959,6 +1268,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Se concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">selenium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">selenium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -971,6 +1293,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median Se concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1030,6 +1365,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Se concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">selenium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">selenium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1042,6 +1390,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Se concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1101,6 +1462,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Se concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">selenium_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">selenium concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1113,6 +1487,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Se concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1172,6 +1559,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">vitamin_A_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vitamin A concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1184,6 +1584,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median vitamin A concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1243,6 +1656,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">vitamin_A_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vitamin A concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1255,6 +1681,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">vitamin A concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1314,6 +1753,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">vitamin_A_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">vitamin A concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1326,6 +1778,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">vitamin A concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1385,6 +1850,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Zn concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">zinc_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">zinc concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1397,6 +1875,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median Zn concentration for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1456,6 +1947,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Zn concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">zinc_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">zinc concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1468,6 +1972,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Zn concentration, lower uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1527,6 +2044,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Zn concentration calculation for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">zinc_concentration</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">zinc concentration</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -1539,6 +2069,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">Zn concentration, upper uncertainty bound for </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_uncertainty_bound</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper uncertainty bound</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -1608,6 +2151,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">feeding path observation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">feeding_path</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">feeding path</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX7_observed_propery</relationship>
                </target_relation>
@@ -1661,6 +2217,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
                      <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">feeding_path</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">feeding path</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
                         <relationship>marinetlo:LX16_used_object_of_type</relationship>
                         <entity>
                            <type>marinetlo:BT33_Marine_Animal_Type</type>
@@ -1704,9 +2273,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -1727,6 +2293,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">length-weight_relation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">length-weight relation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -1739,6 +2318,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating parameter a of the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">parameter_a</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">parameter a</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -1798,6 +2390,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">length-weight_relation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">length-weight relation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -1811,6 +2416,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating SD of log10(a) for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">sd_log_10_a</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">sd log10 a</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -1870,6 +2488,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">length-weight_relation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">length-weight relation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -1883,6 +2514,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating exponent b of the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">exponent_b</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">exponent b</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -1942,6 +2586,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating the Lenght-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">length-weight_relation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">length-weight relation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -1955,6 +2612,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating SD of estimate b for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">sd_of_b</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">sd of b</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -2014,6 +2684,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
                         <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">length-weight_relation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">length-weight relation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC57_used_specific_technique</relationship>
                </target_relation>
@@ -2044,9 +2727,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -2070,6 +2750,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">trophic level calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">trophic_level</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -2083,9 +2776,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Trophic_Level/',text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">trophic level</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
@@ -2123,6 +2815,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">trophic level calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">trophic_level</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -2149,9 +2854,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Trophic_Level_Standard_Error/',text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">trophic level standard error</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
@@ -2190,6 +2894,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">trophic level calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">trophic_level</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -2203,9 +2920,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Trophic_Level/',text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">trophic level</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
@@ -2244,6 +2960,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">trophic level calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">trophic_level</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC62_consists_of</relationship>
                   <entity>
@@ -2270,9 +2999,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
                         <arg name="term" type="xpath">concat('Trophic_Level_Standard_Error/',text())</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">trophic level standard error</arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
                         <relationship>marinetlo:LX3_has_type</relationship>
@@ -2327,6 +3055,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="xpath">concat('total length of species ', ../C_SpecCode/text(), ': ')</arg>
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">measurement</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">measurement</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>marinetlo:LC20_has_value</relationship>
                         <entity>
@@ -2404,6 +3145,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
                      <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">estimation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">estimation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
                         <relationship>marinetlo:LC20_has_value</relationship>
                         <entity>
                            <type>owl:real</type>
@@ -2453,9 +3207,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -2477,6 +3228,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">prior_r_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">prior r calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -2489,6 +3253,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r (median) for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -2537,6 +3314,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">prior_r_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">prior r calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -2549,6 +3339,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r (lower limit, 95%) for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">lower_limit</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower limit</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -2597,6 +3400,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">prior_r_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">prior r calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -2609,6 +3425,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">prior r (upper limit, 95%) for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">upper_limit</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper limit</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC28_has_dimension</relationship>
                </target_relation>
@@ -2639,6 +3468,88 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                </target_node>
             </range>
          </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_n_r</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">prior_r_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">prior r calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LC55_used_specific_object</relationship>
+                  <entity>
+                     <type>marinetlo:BC75_Stock</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Stocks</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">stocks of</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_n_r</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Number/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">number of stocks</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:O3_has_note</relationship>
+                        <entity>
+                           <type>xsd:string</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">../C_Comment_r/text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
       </mapping>
       <mapping>
          <domain>
@@ -2650,9 +3561,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -2676,59 +3584,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">mean K calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
-                  </entity>
-                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
-               </target_relation>
-            </path>
-            <range>
-               <source_node>C_K</source_node>
-               <target_node>
-                  <entity>
-                     <type>marinetlo:BC5_Dimension</type>
-                     <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
-                        <arg name="term" type="xpath">concat('Mean_K/',text())</arg>
-                     </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">mean K</arg>
-                        <arg name="term2" type="xpath">text()</arg>
-                     </label_generator>
                      <additional>
-                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <relationship>crm:P2_has_type</relationship>
                         <entity>
-                           <type>marinetlo:BT1_TLO_Entity_Type</type>
-                           <instance_generator name="TypeURI">
-                              <arg name="type" type="constant">Mean_Growth_Rate(Observed)</arg>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">mean_k_calculation</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">mean growth rate (observed)</arg>
+                              <arg name="label" type="constant">mean k calculation</arg>
                            </label_generator>
                         </entity>
                      </additional>
-                  </entity>
-               </target_node>
-            </range>
-         </link>
-         <link>
-            <path>
-               <source_relation>
-                  <relation>C_K</relation>
-               </source_relation>
-               <target_relation>
-                  <if>
-                     <equals value="true">../C_KObserved/text()</equals>
-                  </if>
-                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
-                  <entity>
-                     <type>marinetlo:BC74_Data_Evaluation</type>
-                     <instance_generator name="LocalTermURI">
-                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
-                        <arg name="term" type="constant">Mean_K_Calculation</arg>
-                     </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">mean K calculation for</arg>
-                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
-                     </label_generator>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -2783,6 +3651,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">mean K calculation for</arg>
                         <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">mean_k_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mean k calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC48_assigned_dimension</relationship>
                </target_relation>
@@ -2805,10 +3686,10 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <entity>
                            <type>marinetlo:BT1_TLO_Entity_Type</type>
                            <instance_generator name="TypeURI">
-                              <arg name="type" type="constant">Mean_Growth_Rate(Observed)</arg>
+                              <arg name="type" type="constant">Mean_Growth_Rate(measured)</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="constant">mean growth rate (observed)</arg>
+                              <arg name="label" type="constant">mean growth rate (measured)</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -2834,6 +3715,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median_t_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median t calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -2918,6 +3812,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median_t_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median t calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -2947,6 +3854,18 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T (lower confidence limit)</arg>
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT12_Scientific_Data_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">lower_confidence_limit</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">lower confidence limit</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>marinetlo:LC20_has_value</relationship>
                         <entity>
@@ -2990,6 +3909,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median_t_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median t calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC49_described_was_described_by</relationship>
                   <entity>
@@ -3019,6 +3951,18 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T (upper confidence limit)</arg>
                         <arg name="term2" type="xpath">text()</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT12_Scientific_Data_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">upper_confidence_limit</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">upper confidence limit</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>marinetlo:LC20_has_value</relationship>
                         <entity>
@@ -3062,6 +4006,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">median T calculation for: </arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">median_t_calculation</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">median t calculation</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LC55_used_specific_object</relationship>
                   <entity>
@@ -3115,9 +4072,6 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                      <arg name="hierarchy" type="constant">Species</arg>
                      <arg name="term" type="xpath">C_SpecCode/text()</arg>
                   </instance_generator>
-                  <label_generator name="SimpleLabel">
-                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
-                  </label_generator>
                </entity>
             </target_node>
          </domain>
@@ -3138,6 +4092,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">temperature description for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">temperature_description</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">temperature description</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX3_is_type_of</relationship>
                   <entity>
@@ -3151,6 +4118,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">preferred temperature (minimum) for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">minimum_value</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">minimum value</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>crm:P91_has_unit</relationship>
                         <entity>
@@ -3197,6 +4177,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">temperature description for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">temperature_description</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">temperature description</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX3_is_type_of</relationship>
                   <entity>
@@ -3210,6 +4203,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">preferred temperature (maximum) for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">maximum_value</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">maximum value</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>crm:P91_has_unit</relationship>
                         <entity>
@@ -3256,6 +4262,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">temperature description for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">temperature_description</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">temperature description</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX3_is_type_of</relationship>
                   <entity>
@@ -3269,6 +4288,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">preferred temperature (mean) for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">mean_value</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mean value</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                      <additional>
                         <relationship>crm:P91_has_unit</relationship>
                         <entity>
@@ -3315,6 +4347,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">temperature description for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">temperature_description</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">temperature description</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>marinetlo:LX3_is_type_of</relationship>
                   <entity>
@@ -3328,6 +4373,19 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="term1" type="constant">half-degree cells for</arg>
                         <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
                      </label_generator>
+                     <additional>
+                        <relationship>crm:P2_has_type</relationship>
+                        <entity>
+                           <type>crm:E55_Type</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="constant">estimate_type</arg>
+                              <arg name="term" type="constant">half-degree_cells</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">half-degree cells</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
                   </entity>
                   <relationship>crm:P90_has_value</relationship>
                </target_relation>
