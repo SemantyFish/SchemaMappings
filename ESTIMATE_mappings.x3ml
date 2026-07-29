@@ -1,0 +1,3349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x3ml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      source_type="xpath"
+      version="1.0"
+      xsi:noNamespaceSchemaLocation="https://isl.ics.forth.gr/x3ml/schema/x3ml.xsd">
+   <info>
+      <title>SemantyFish_ESTIMATE_Table</title>
+      <general_description>Mappings for the table ECOLOGY of FishBase
+
+i've switched back to almost exclusively using marine-tlo classes and properties. ISA relations have been substituted for Part_Of relations (btw types) to ensure that only marine-tlo is used. where P2 has type:E55 Type occurs it's for things that fall outside the scope of the classifications by fishbase (potentially redundant types --namely: "aquatic ecosystems", "type of substrate", "special habitats". Also "feeding type" and "feeding behavior" for trophic levels. What these P2:E55 chains all have in common, is that they can be deleted without loss of meaning. </general_description>
+      <source>
+         <source_info>
+            <source_schema schema_file="ESTIMATE.xml" type="xml" version="">ESTIMATE</source_schema>
+            <namespaces>
+               <namespace prefix="" uri=""/>
+            </namespaces>
+         </source_info>
+      </source>
+      <target>
+         <target_info>
+            <target_schema schema_file="CIDOC_CRM_v7.1.1.rdfs" type="rdfs" version="">CIDOC CRM</target_schema>
+            <namespaces>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
+               <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+               <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
+            </namespaces>
+         </target_info>
+         <target_info>
+            <target_schema schema_file="CIDOC_CRM_v7.1.2_PC.rdf" type="rdf" version="">CIDOC_CRM_v7.1.2_PC</target_schema>
+            <namespaces>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
+               <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+               <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
+            </namespaces>
+         </target_info>
+         <target_info>
+            <target_schema schema_file="marinetlo_semantyFish_ext5_6.owl"
+                           type="owl"
+                           version="">marinetlo_semantyFish_ext5_6</target_schema>
+            <namespaces>
+               <namespace prefix="marinetlo"
+                          uri="http://www.ics.forth.gr/isl/ontology/MarineTLO/"/>
+               <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+               <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+               <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#"/>
+               <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"/>
+               <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"/>
+               <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
+               <namespace prefix="vs" uri="http://www.w3.org/2003/06/sw-vocab-status/ns#"/>
+               <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"/>
+               <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"/>
+            </namespaces>
+         </target_info>
+      </target>
+      <mapping_info>
+         <mapping_created_by_org/>
+         <mapping_created_by_person/>
+         <in_collaboration_with/>
+      </mapping_info>
+      <example_data_info>
+         <example_data_from/>
+         <example_data_contact_person/>
+         <example_data_source_record/>
+         <generator_policy_info/>
+         <example_data_target_record/>
+         <thesaurus_info/>
+      </example_data_info>
+   </info>
+   <namespaces>
+      <namespace prefix="pref" uri="https://semantyfish.github.io/kb/resource/"/>
+   </namespaces>
+   <mappings>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Calcium</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Ca concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median Ca concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Calcium</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Calcium_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Ca concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Ca concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Calcium_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Calcium_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Ca concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Calcium_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Ca concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Calcium_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Iron</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fe concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median Fe concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Iron</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Iron_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fe concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fe concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Iron_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Iron_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fe concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Iron_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Fe concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Iron_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Omega3</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median omega-3 fatty acids concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Omega3</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Omega3_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">omega-3 fatty acids concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Omega3_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Omega3_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">omega3 fatty acids concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Omega3_Fatty_Acids_Concentration_upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">omega-3 fatty acids concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Omega3_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Protein</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">protein concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median protein concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Protein</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Protein_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">protein concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">protein concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Protein_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Protein_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">protein concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Protein_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">protein concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Protein_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Selenium</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Se concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median Se concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Selenium</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Selenium_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Se concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Se concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Selenium_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Selenium_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Se concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Selenium_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Se concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Selenium_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_VitaminA</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median vitamin A concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_VitaminA</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_VitaminA_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">vitamin A concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_VitaminA_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_VitaminA_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">vitamin A concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">VitaminA_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">vitamin A concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_VitaminA_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Zinc</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zinc_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Zn concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zn_Concentration_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median Zn concentration for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Zinc</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Zinc_l95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zinc_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Zn concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zinc_Concentration_Lower_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Zn concentration, lower uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Zinc_l95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Zinc_u95</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zinc_Concentration_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Zn concentration calculation for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Zinc_Concentration_Upper_Uncertainty_Bound</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">Zn concentration, upper uncertainty bound for </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Zinc_u95</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">g/100_g</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">text()</arg>
+                        <arg name="term2" type="constant">mg/100 g</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">mg/100g</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mg/100g</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_FeedingPath</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>text()</exists>
+                        </if>
+                        <if>
+                           <equals value="species">../CFeedingPathLevel</equals>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC45_Observation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Feeding_Path_Observation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">feeding path observation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX7_observed_propery</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_FeedingPath</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT35_Property_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">Food_Sources</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">food sources: </arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_FeedingPath</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <and>
+                        <if>
+                           <exists>text()</exists>
+                        </if>
+                        <if>
+                           <not>
+                              <if>
+                                 <equals value="species">../CFeedingPathLevel</equals>
+                              </if>
+                           </not>
+                        </if>
+                     </and>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC73_Inference_Making</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Feeding_Path_Observation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">feeding path observation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX16_used_object_of_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT33_Marine_Animal_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="xpath">text()</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="xpath">text()</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>marinetlo:LX6_assigned_attribute_to_type</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_FeedingPath</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BT35_Property_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">text()</arg>
+                        <arg name="term" type="constant">Food_Sources</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">food sources: </arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_a</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Parameter_a_LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating parameter a of the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_a</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Parameter_a_LW_Relation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">parameter a of the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Parameter_a_L_W</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">parameter a (LW)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_sd_log10a</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">SD_log10(a)_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating SD of log10(a) for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_sd_log10a</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('SD_log10(a)/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">concat('SDof log10(a): ', text())</arg>
+                        <arg name="term2" type="xpath">concat('for species: ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">SD_log(a)_L_W_Regression</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">sd log(a) (LW-regression)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_b</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Exponent_b_LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating exponent b of the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_b</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Exponent_b_LW_Relation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">exponent b of the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Exponent_b_L_W</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">exponent b (LW)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_sd_b</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating the Lenght-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">SD_Estimate_b_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating SD of estimate b for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_sd_b</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('SD_exponent_b_LW_Relation/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">concat('SD of the exponent b: ', text())</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">SD_Exponent_b_(L_W_Regression)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">sd exponent b (LW-regression)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Method_ab</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">LW_Relation_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">calculating the Length-Weight relationship for</arg>
+                        <arg name="term2" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC57_used_specific_technique</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Method_ab</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC64_Design_or_Procedure</type>
+                     <instance_generator name="TypeURI">
+                        <arg name="type" type="xpath">translate(text(), ' ', '_')</arg>
+                     </instance_generator>
+                     <label_generator name="SimpleLabel">
+                        <arg name="label" type="xpath">text()</arg>
+                     </label_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Troph</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">../C_TrophObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Trophic_Level_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Troph</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Trophic_Level/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Trophic_Level(Observed)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level (observed)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_seTroph</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">../C_TrophObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Trophic_Level_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Standard_Error_Trophic_Level_Calculation(Estimate)</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">standard error of trophic level calculation (estimate) for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_seTroph</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Trophic_Level_Standard_Error/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level standard error</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Standard_Error_Trophic_Level(Observed)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">standard error for trophic level (observed)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Troph</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">../C_TrophObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Trophic_Level_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Troph</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Trophic_Level/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Trophic_Level_from_Diet</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">trophic level from diet</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_seTroph</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">../C_TrophObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Trophic_Level_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC62_consists_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Standard_Error_Trophic_Level_Calculation(Estimate)</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">standard error of trophic level calculation (estimate) for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_seTroph</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Trophic_Level_Standard_Error/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">trophic level standard error</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Standard_Error_Trophic_Level(Estimate)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">standard error for trophic level (estimate)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_MaxLengthTL</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">../C_MaxLengthTL/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_MaxLengthTL</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Total_Length/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">concat('total length of species ', ../C_SpecCode/text(), ': ')</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Centimeters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">centimeters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC37_was_measured_by</relationship>
+                        <entity>
+                           <type>marinetlo:BC54_Measurement</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                              <arg name="term" type="constant">Measurement_(Length)</arg>
+                           </instance_generator>
+                           <label_generator name="CompositeLabel">
+                              <arg name="term1" type="constant">measurement (length) of</arg>
+                              <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_MaxLengthTL</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">../C_MaxLengthTL/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC53_Specimen</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Specimen</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">specimen of</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC19_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_MaxLengthTL</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Total_Length/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="xpath">concat('total length of species ', ../C_SpecCode/text(), ': ')</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Centimeters</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">centimeters</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC48_dimension_was_assigned_by</relationship>
+                        <entity>
+                           <type>marinetlo:BC74_Data_Evaluation</type>
+                           <instance_generator name="LocalTermURI">
+                              <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                              <arg name="term" type="constant">Estimate_(Length)</arg>
+                           </instance_generator>
+                           <label_generator name="CompositeLabel">
+                              <arg name="term1" type="constant">estimate (length) of</arg>
+                              <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_prior_r</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_Median</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (median) for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_prior_r</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Prior_r_Median</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (median)</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_lcl_r</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_Lower_Limit_95</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (lower limit, 95%) for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_lcl_r</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Prior_r_Lower_Limit_95</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (lower limit, 95)</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_ucl_r</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Prior_r_Upper_Limit_95</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (upper limit, 95%) for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_ucl_r</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Prior_r_Upper_Limit_95</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">prior r (upper limit, 95)</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_K</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">../C_KObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Mean_K_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_K</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Mean_K/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Mean_Growth_Rate(Observed)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mean growth rate (observed)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_K</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="true">../C_KObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Mean_K_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_K</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Mean_K/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Mean_Growth_Rate(Observed)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mean growth rate (observed)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_K</relation>
+               </source_relation>
+               <target_relation>
+                  <if>
+                     <equals value="false">../C_KObserved/text()</equals>
+                  </if>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Mean_K_Calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K calculation for</arg>
+                        <arg name="term2" type="xpath">concat('Species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC48_assigned_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_K</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Mean_K/',text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">mean K</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT1_TLO_Entity_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Mean_Growth_Rate(Observed)</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">mean growth rate (observed)</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_Median_T</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_Median_T</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Median_T</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LX3_has_type</relationship>
+                        <entity>
+                           <type>marinetlo:BT12_Scientific_Data_Type</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Generation_Time</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">generation time</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Years</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">years</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_lcl_T</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_Lower_Confidence_Limit</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T (lower confidence limit) for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_lcl_T</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Median_T_Lower_Confidence_Limit</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T (lower confidence limit)</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Years</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">years</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_ucl_T</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC49_described_was_described_by</relationship>
+                  <entity>
+                     <type>marinetlo:BC9_Observable_Entity</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/',../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_Upper_Confidence_Limit</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T (upper confidence limit) for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_ucl_T</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="constant">Median_T_Upper_Confidence_Limit</arg>
+                        <arg name="term" type="xpath">text()</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T (upper confidence limit)</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC21_has_unit</relationship>
+                        <entity>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Years</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">years</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_n_T</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LX16_was_type_of_object_used_in</relationship>
+                  <entity>
+                     <type>marinetlo:BC74_Data_Evaluation</type>
+                     <type>marinetlo:BC82_Simulation_or_Prediction</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Median_T_calculation</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">median T calculation for: </arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC55_used_specific_object</relationship>
+                  <entity>
+                     <type>marinetlo:BC18_Proposition</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Growth_Studies</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">growth studies for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LC28_has_dimension</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_n_T</source_node>
+               <target_node>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="xpath">concat('Studies_Number/', text())</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">number of studies</arg>
+                        <arg name="term2" type="xpath">text()</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+      <mapping>
+         <domain>
+            <source_node>//ESTIMATE</source_node>
+            <target_node>
+               <entity>
+                  <type>marinetlo:BT27_Species</type>
+                  <instance_generator name="LocalTermURI">
+                     <arg name="hierarchy" type="constant">Species</arg>
+                     <arg name="term" type="xpath">C_SpecCode/text()</arg>
+                  </instance_generator>
+                  <label_generator name="SimpleLabel">
+                     <arg name="label" type="xpath">C_SpecCode/text()</arg>
+                  </label_generator>
+               </entity>
+            </target_node>
+         </domain>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TempPrefMin</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Temperature_Description</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">temperature description for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <type>crm:E54_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Preferred_Temperature_Minimum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">preferred temperature (minimum) for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P91_has_unit</relationship>
+                        <entity>
+                           <type>crm:E58_Measurement_Unit</type>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Celcius</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">celsius</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>crm:P90_has_value</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TempPrefMin</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TempPrefMax</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Temperature_Description</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">temperature description for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <type>crm:E54_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Preferred_Temperature_Maximum</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">preferred temperature (maximum) for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P91_has_unit</relationship>
+                        <entity>
+                           <type>crm:E58_Measurement_Unit</type>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Celcius</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">celsius</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>crm:P90_has_value</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TempPrefMax</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_TempPrefMean</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Temperature_Description</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">temperature description for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <type>crm:E54_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Preferred_Temperature_Mean</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">preferred temperature (mean) for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                     <additional>
+                        <relationship>crm:P91_has_unit</relationship>
+                        <entity>
+                           <type>crm:E58_Measurement_Unit</type>
+                           <type>marinetlo:BC55_Measurement_Unit</type>
+                           <instance_generator name="TypeURI">
+                              <arg name="type" type="constant">Celcius</arg>
+                           </instance_generator>
+                           <label_generator name="SimpleLabel">
+                              <arg name="label" type="constant">celsius</arg>
+                           </label_generator>
+                        </entity>
+                     </additional>
+                  </entity>
+                  <relationship>crm:P90_has_value</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_TempPrefMean</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+         <link>
+            <path>
+               <source_relation>
+                  <relation>C_nCells</relation>
+               </source_relation>
+               <target_relation>
+                  <relationship>marinetlo:LT6_usually_is_subject_of</relationship>
+                  <entity>
+                     <type>marinetlo:BT4_Conceptual_Object_Type</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Temperature_Description</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">temperature description for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>marinetlo:LX3_is_type_of</relationship>
+                  <entity>
+                     <type>marinetlo:BC5_Dimension</type>
+                     <type>crm:E54_Dimension</type>
+                     <instance_generator name="LocalTermURI">
+                        <arg name="hierarchy" type="xpath">concat('Species/', ../C_SpecCode/text())</arg>
+                        <arg name="term" type="constant">Half_Degree_Cells</arg>
+                     </instance_generator>
+                     <label_generator name="CompositeLabel">
+                        <arg name="term1" type="constant">half-degree cells for</arg>
+                        <arg name="term2" type="xpath">concat('species ', ../C_SpecCode/text())</arg>
+                     </label_generator>
+                  </entity>
+                  <relationship>crm:P90_has_value</relationship>
+               </target_relation>
+            </path>
+            <range>
+               <source_node>C_nCells</source_node>
+               <target_node>
+                  <entity>
+                     <type>rdfs:Literal</type>
+                     <instance_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
+                     </instance_generator>
+                  </entity>
+               </target_node>
+            </range>
+         </link>
+      </mapping>
+   </mappings>
+</x3ml>
