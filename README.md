@@ -23,4 +23,5 @@ The table below describes the schema mappings that are used and contains links t
 | ECOSYSTEM  | [ECOSYSTEM_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ECOSYSTEM_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/211584 |
 | ECOSYSTEMREF  | [ECOSYSTEMREF_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ECOSYSTEMREF_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/191920 |
 | ECOLOGY  | [ECOLOGY_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ECOLOGY_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/416284 |
-| REPRODUC  | [REPRODUC_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/REPRODUC_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/139477 |
+| REPRODUCTION  | [REPRODUC_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/REPRODUC_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/139477 |
+| ESTIMATE  | [ESTIMATE_mappings.x3ml](https://github.com/SemantyFish/SchemaMappings/blob/main/ESTIMATE_mappings.x3ml) | https://demos.isl.ics.forth.gr/3m/MappingTableView/592150 |
