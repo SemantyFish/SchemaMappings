@@ -2136,7 +2136,7 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                            <exists>text()</exists>
                         </if>
                         <if>
-                           <equals value="species">../CFeedingPathLevel</equals>
+                           <equals value="species">../C_FeedingPathLevel/text()</equals>
                         </if>
                      </and>
                   </if>
@@ -2177,9 +2177,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">text()</arg>
                         <arg name="term" type="constant">Food_Sources</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">food sources: </arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                   </entity>
                </target_node>
@@ -2199,7 +2198,7 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <if>
                            <not>
                               <if>
-                                 <equals value="species">../CFeedingPathLevel</equals>
+                                 <equals value="species">../C_FeedingPathLevel/text()</equals>
                               </if>
                            </not>
                         </if>
@@ -2234,10 +2233,10 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <entity>
                            <type>marinetlo:BT33_Marine_Animal_Type</type>
                            <instance_generator name="TypeURI">
-                              <arg name="type" type="xpath">text()</arg>
+                              <arg name="type" type="xpath">../C_FeedingPathLevel/text()</arg>
                            </instance_generator>
                            <label_generator name="SimpleLabel">
-                              <arg name="label" type="xpath">text()</arg>
+                              <arg name="label" type="xpath">../C_FeedingPathLevel/text()</arg>
                            </label_generator>
                         </entity>
                      </additional>
@@ -2254,9 +2253,8 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                         <arg name="hierarchy" type="xpath">text()</arg>
                         <arg name="term" type="constant">Food_Sources</arg>
                      </instance_generator>
-                     <label_generator name="CompositeLabel">
-                        <arg name="term1" type="constant">food sources: </arg>
-                        <arg name="term2" type="xpath">text()</arg>
+                     <label_generator name="Literal">
+                        <arg name="text" type="xpath">text()</arg>
                      </label_generator>
                   </entity>
                </target_node>
