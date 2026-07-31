@@ -3532,6 +3532,15 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                            </label_generator>
                         </entity>
                      </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
+                        </entity>
+                     </additional>
                   </entity>
                </target_node>
             </range>
@@ -3597,6 +3606,15 @@ i've switched back to almost exclusively using marine-tlo classes and properties
                            <label_generator name="SimpleLabel">
                               <arg name="label" type="constant">mean growth rate (measured)</arg>
                            </label_generator>
+                        </entity>
+                     </additional>
+                     <additional>
+                        <relationship>marinetlo:LC20_has_value</relationship>
+                        <entity>
+                           <type>owl:real</type>
+                           <instance_generator name="Literal">
+                              <arg name="text" type="xpath">text()</arg>
+                           </instance_generator>
                         </entity>
                      </additional>
                   </entity>
